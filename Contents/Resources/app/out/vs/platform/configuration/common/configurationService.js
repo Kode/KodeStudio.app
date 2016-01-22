@@ -65,6 +65,11 @@ define(["require", "exports", 'vs/base/common/paths', 'vs/base/common/winjs.base
                     );
                     try {
                         if (fs.statSync(_this.contextService.toResource('khafile.js').fsPath).isFile()) {
+                            var exec = process.execPath;
+                            if (exec.indexOf('Electron Helper') >= 0) {
+                                var dir = exec.substring(0, exec.lastIndexOf('/'));
+                                exec = paths.join(dir, '..', '..', '..', '..', 'MacOS', 'Electron');
+                            }
                             merged = objects.mixin(merged, {
                                 launch: {
                                     configurations: [
@@ -74,7 +79,7 @@ define(["require", "exports", 'vs/base/common/paths', 'vs/base/common/winjs.base
                                             request: "launch",
                                             file: "build/debug-html5",
                                             sourceMaps: true,
-                                            runtimeExecutable: process.execPath
+                                            runtimeExecutable: exec
                                         }
                                     ]
                                 }

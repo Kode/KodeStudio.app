@@ -48,15 +48,21 @@ var WebKitDebugAdapter = (function () {
             fs.stat(path.resolve(args.cwd, 'Kha'), function (err, stats) {
                 var process;
                 if (err == null) {
-                    process = child_process_1.fork('Kha/make', ['debug-html5'], { cwd: args.cwd });
+                    process = child_process_1.fork('Kha/make', ['debug-html5', '--silent'], { cwd: args.cwd });
                 }
                 else {
                     process = child_process_1.spawn('haxelib', ['run', 'kha', 'debug-html5'], { cwd: args.cwd });
                 }
                 process.on('exit', function (code) {
                     var electronPath = args.runtimeExecutable;
+                    var electronDir = electronPath;
+                    if (electronPath.lastIndexOf('/') >= 0)
+                        electronDir = electronPath.substring(0, electronPath.lastIndexOf('/'));
+                    else if (electronPath.lastIndexOf('\\') >= 0)
+                        electronDir = electronPath.substring(0, electronPath.lastIndexOf('\\'));
                     // Start with remote debugging enabled
-                    var port = args.port || 9222;
+                    var port = args.port || Math.floor((Math.random() * 10000) + 10000);
+                    ;
                     var electronArgs = ['--remote-debugging-port=' + port];
                     electronArgs.push(path.resolve(args.cwd, args.file));
                     var launchUrl;
@@ -69,7 +75,8 @@ var WebKitDebugAdapter = (function () {
                     utilities_1.Logger.log("spawn('" + electronPath + "', " + JSON.stringify(electronArgs) + ")");
                     _this._chromeProc = child_process_1.spawn(electronPath, electronArgs, {
                         detached: true,
-                        stdio: ['ignore']
+                        stdio: ['ignore'],
+                        cwd: electronDir
                     });
                     _this._chromeProc.unref();
                     _this._chromeProc.on('error', function (err) {

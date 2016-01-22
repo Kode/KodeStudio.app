@@ -80,16 +80,21 @@ export class WebKitDebugAdapter implements IDebugAdapter {
             fs.stat(path.resolve(args.cwd, 'Kha'), (err, stats) => {
                 let process: ChildProcess;
                 if (err == null) {
-                    process = fork('Kha/make', ['debug-html5'], {cwd: args.cwd});
+                    process = fork('Kha/make', ['debug-html5', '--silent'], {cwd: args.cwd});
                 }
                 else {
                     process = spawn('haxelib', ['run', 'kha', 'debug-html5'], {cwd: args.cwd});
                 }
                 process.on('exit', (code) => {
                     const electronPath = args.runtimeExecutable;
+                    let electronDir = electronPath;
+                    if (electronPath.lastIndexOf('/') >= 0)
+                        electronDir = electronPath.substring(0, electronPath.lastIndexOf('/'));
+                    else if (electronPath.lastIndexOf('\\') >= 0)
+                        electronDir = electronPath.substring(0, electronPath.lastIndexOf('\\'));
 
                     // Start with remote debugging enabled
-                    const port = args.port || 9222;
+                    const port = args.port || Math.floor((Math.random() * 10000) + 10000);;
                     const electronArgs: string[] = ['--remote-debugging-port=' + port];
 
                     electronArgs.push(path.resolve(args.cwd, args.file));
@@ -104,7 +109,8 @@ export class WebKitDebugAdapter implements IDebugAdapter {
                     Logger.log(`spawn('${electronPath}', ${JSON.stringify(electronArgs) })`);
                     this._chromeProc = spawn(electronPath, electronArgs, {
                         detached: true,
-                        stdio: ['ignore']
+                        stdio: ['ignore'],
+                        cwd: electronDir
                     });
                     (<any>this._chromeProc).unref();
                     this._chromeProc.on('error', (err) => {

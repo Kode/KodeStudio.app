@@ -9,7 +9,7 @@
 	<key>CFBundleExecutable</key>
 	<string>Electron</string>
 	<key>CFBundleIconFile</key>
-	<string>atom.icns</string>
+	<string>code.icns</string>
 	<key>CFBundleIdentifier</key>
 	<string>com.github.electron</string>
 	<key>CFBundleInfoDictionaryVersion</key>
