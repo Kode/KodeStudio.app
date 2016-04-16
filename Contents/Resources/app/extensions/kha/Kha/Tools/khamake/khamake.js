@@ -1,4 +1,4 @@
-﻿"use strict";
+"use strict";
 
 var version = Number(process.version.match(/^v(\d+\.\d+)/)[1]);
 
