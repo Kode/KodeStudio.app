@@ -43,7 +43,7 @@
     <key>NSSupportsAutomaticGraphicsSwitching</key>
     <true/>
     <key>NSHumanReadableCopyright</key>
-    <string>Copyright (C) 2015 Microsoft. All rights reserved</string>
+    <string>Copyright (C) 2016 KTX Software Development. All rights reserved</string>
     <key>CFBundleDocumentTypes</key>
     <array>
       <dict>
