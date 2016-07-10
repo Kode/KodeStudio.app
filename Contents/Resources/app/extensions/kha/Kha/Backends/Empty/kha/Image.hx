@@ -13,6 +13,10 @@ class Image implements Canvas implements Resource {
 	public static function createRenderTarget(width: Int, height: Int, format: TextureFormat = null, depthStencil: DepthStencilFormat = DepthStencilFormat.NoDepthAndStencil, antiAliasingSamples: Int = 1): Image {
 		return null;
 	}
+	
+	public static function fromBytes(bytes: Bytes, width: Int, height: Int, format: TextureFormat = null, usage: Usage = null): Image {
+		return null;
+	}
 
 	public static var maxSize(get, null): Int;
 
@@ -33,6 +37,7 @@ class Image implements Canvas implements Resource {
 	public function unlock(): Void { }
 	public function generateMipmaps(levels: Int): Void { }
 	public function setMipmaps(mipmaps: Array<Image>): Void { }
+	public function setDepthStencilFrom(image: Image): Void { }
 	public var width(get, null): Int;
 	private function get_width(): Int { return 0; }
 	public var height(get, null): Int;

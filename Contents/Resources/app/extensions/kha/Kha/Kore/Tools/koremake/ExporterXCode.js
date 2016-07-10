@@ -317,7 +317,10 @@ class ExporterXCode extends Exporter {
 				}
 			}
 			else if (framework.toString().endsWith('.dylib')) this.p(framework.getFileId() + " /* " + framework.toString() + " */ = {isa = PBXFileReference; lastKnownFileType = compiled.mach-o.dylib; name = " + framework.toString() + "; path = usr/lib/" + framework.toString() + "; sourceTree = SDKROOT; };", 2);
-			else this.p(framework.getFileId() + " /* " + framework.toString() + " */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = " + framework.toString() + "; path = ../" + from.resolve(framework.toString()).toAbsolutePath().toString() + "; sourceTree = SDKROOT; };", 2);
+			else {
+				framework.localPath = from.resolve(framework.toString()).toAbsolutePath().toString();
+				this.p(framework.getFileId() + " /* " + framework.toString() + " */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = " + framework.toString() + "; path = " + framework.localPath + "; sourceTree = \"<group>\"; };", 2);
+			}
 		}
 		this.p(debugDirFileId + " /* Deployment */ = {isa = PBXFileReference; lastKnownFileType = folder; name = Deployment; path = \"" + from.resolve(project.getDebugDir()).toAbsolutePath().toString() + "\"; sourceTree = \"<group>\"; };", 2);
 		for (let file of files) {
@@ -577,7 +580,7 @@ class ExporterXCode extends Exporter {
 			}
 			else {
 				if (project.cpp11) this.p('MACOSX_DEPLOYMENT_TARGET = 10.7;', 4);
-				else this.p('MACOSX_DEPLOYMENT_TARGET = 10.4;', 4);
+				else this.p('MACOSX_DEPLOYMENT_TARGET = 10.5;', 4);
 			}
 		}
 		this.p('MTL_ENABLE_DEBUG_INFO = YES;', 4);
@@ -654,7 +657,7 @@ class ExporterXCode extends Exporter {
 			}
 			else {
 				if (project.cpp11) this.p('MACOSX_DEPLOYMENT_TARGET = 10.7;', 4);
-				else this.p('MACOSX_DEPLOYMENT_TARGET = 10.4;', 4);
+				else this.p('MACOSX_DEPLOYMENT_TARGET = 10.5;', 4);
 			}
 		}
 		this.p('MTL_ENABLE_DEBUG_INFO = NO;', 4);

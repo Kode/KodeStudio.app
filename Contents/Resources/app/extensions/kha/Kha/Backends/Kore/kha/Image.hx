@@ -34,6 +34,10 @@ class Image implements Canvas implements Resource {
 	public static function createRenderTarget(width: Int, height: Int, format: TextureFormat = null, depthStencil: DepthStencilFormat = NoDepthAndStencil, antiAliasingSamples: Int = 1, contextId: Int = 0): Image {
 		return create2(width, height, format == null ? TextureFormat.RGBA32 : format, false, true, depthStencil, contextId);
 	}
+	
+	public static function fromBytes(bytes: Bytes, width: Int, height: Int, format: TextureFormat = null, usage: Usage = null): Image {
+		return null;
+	}
 
 	private function new(readable: Bool) {
 		this.readable = readable;
@@ -222,5 +226,9 @@ class Image implements Canvas implements Resource {
 			var level = i + 1;
 			untyped __cpp__("texture->setMipmap(image->texture, level)");
 		}
+	}
+
+	public function setDepthStencilFrom(image: Image): Void {
+		untyped __cpp__("renderTarget->setDepthStencilFrom(image->renderTarget)");
 	}
 }

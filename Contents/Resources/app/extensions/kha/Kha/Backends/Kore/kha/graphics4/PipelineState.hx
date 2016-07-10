@@ -15,14 +15,11 @@ import kha.graphics4.VertexStructure;
 class PipelineState extends PipelineStateBase {
 	public function new() {
 		super();
-		init();
+		untyped __cpp__('program = new Kore::Program;');
 	}
 	
-	@:functionCode('
-		program = new Kore::Program();
-	')
-	private function init(): Void {
-		
+	public function delete(): Void {
+		untyped __cpp__('delete program; program = nullptr;');
 	}
 	
 	@:functionCode('
@@ -107,8 +104,8 @@ class PipelineState extends PipelineStateBase {
 	
 	public function unused(): Void {
 		var include1 = new VertexElement("include", VertexData.Float2);
-		var include2 = new VertexShader(null);
-		var include3 = new FragmentShader(null);
+		var include2 = new VertexShader(null, null);
+		var include3 = new FragmentShader(null, null);
 		var include4 = new GeometryShader(null);
 		var include5 = new TesselationControlShader(null);
 		var include6 = new TesselationEvaluationShader(null);
