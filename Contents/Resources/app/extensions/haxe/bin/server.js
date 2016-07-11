@@ -1347,7 +1347,7 @@ haxeLanguageServer_HaxeServer.prototype = {
 			env[key1] = this.context.displayServerConfig.env[key1];
 		}
 		env.HAXE_STD_PATH = js_node_Path.normalize(js_node_Path.join(haxePath,"..","std"));
-		this.proc = js_node_ChildProcess.spawn(this.context.displayServerConfig.haxePath,args,{ env : env});
+		this.proc = js_node_ChildProcess.spawn(haxePath,args,{ env : env});
 		this.buffer = new haxeLanguageServer__$HaxeServer_MessageBuffer();
 		this.nextMessageLength = -1;
 		this.proc.stdout.on("data",function(buf) {
