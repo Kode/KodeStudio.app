@@ -19,9 +19,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>16.7.3</string>
+    <string>16.8.0</string>
     <key>CFBundleVersion</key>
-    <string>16.7.3</string>
+    <string>16.8.0</string>
     <key>DTSDKBuild</key>
     <string>14D125</string>
     <key>DTSDKName</key>
@@ -136,8 +136,6 @@
           <string>mkdn</string>
           <string>ml</string>
           <string>mli</string>
-          <string>nqp</string>
-          <string>p6</string>
           <string>php</string>
           <string>phtml</string>
           <string>pl</string>

@@ -1,0 +1,107 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node', '/usr/local/bin/npm', 'install' ]
+2 info using npm@3.8.9
+3 info using node@v6.2.0
+4 silly loadCurrentTree Starting
+5 silly install loadCurrentTree
+6 silly install readLocalPackageData
+7 silly install normalizeTree
+8 silly loadCurrentTree Finishing
+9 silly loadIdealTree Starting
+10 silly install loadIdealTree
+11 silly cloneCurrentTree Starting
+12 silly install cloneCurrentTreeToIdealTree
+13 silly cloneCurrentTree Finishing
+14 silly loadShrinkwrap Starting
+15 silly install loadShrinkwrap
+16 silly loadShrinkwrap Finishing
+17 silly loadAllDepsIntoIdealTree Starting
+18 silly install loadAllDepsIntoIdealTree
+19 silly loadAllDepsIntoIdealTree Finishing
+20 silly idealTree:prePrune vshaxe@0.1.3
+20 silly idealTree:prePrune ├── vscode-jsonrpc@2.2.0
+20 silly idealTree:prePrune └── vscode-languageclient@2.3.0
+21 silly loadIdealTree Finishing
+22 silly currentTree vshaxe@0.1.3
+22 silly currentTree ├── vscode-jsonrpc@2.2.0
+22 silly currentTree └── vscode-languageclient@2.3.0
+23 silly idealTree vshaxe@0.1.3
+23 silly idealTree ├── vscode-jsonrpc@2.2.0
+23 silly idealTree └── vscode-languageclient@2.3.0
+24 silly generateActionsToTake Starting
+25 silly install generateActionsToTake
+26 silly generateActionsToTake Finishing
+27 silly diffTrees action count 0
+28 silly decomposeActions action count 0
+29 silly executeActions Starting
+30 silly install executeActions
+31 silly doSerial global-install 0
+32 silly doParallel fetch 0
+33 verbose correctMkdir /Users/robert/.electron-gyp/.npm/_locks correctMkdir not in flight; initializing
+34 verbose lock using /Users/robert/.electron-gyp/.npm/_locks/staging-111836457d058c58.lock for /Users/robert/Projekte/KodeStudio/extensions/haxe/node_modules/.staging
+35 silly doParallel extract 0
+36 silly doParallel preinstall 0
+37 silly doReverseSerial remove 0
+38 silly doSerial move 0
+39 silly doSerial finalize 0
+40 silly doSerial build 0
+41 silly doSerial global-link 0
+42 silly doParallel update-linked 0
+43 silly doSerial install 0
+44 silly doSerial postinstall 0
+45 verbose unlock done using /Users/robert/.electron-gyp/.npm/_locks/staging-111836457d058c58.lock for /Users/robert/Projekte/KodeStudio/extensions/haxe/node_modules/.staging
+46 silly executeActions Finishing
+47 silly rollbackFailedOptional Starting
+48 silly rollbackFailedOptional Finishing
+49 silly runTopLevelLifecycles Starting
+50 silly install runTopLevelLifecycles
+51 silly preinstall vshaxe@0.1.3 /Users/robert/Projekte/KodeStudio/extensions/haxe/vshaxe-c7059cb0
+52 info lifecycle vshaxe@0.1.3~preinstall: vshaxe@0.1.3
+53 silly lifecycle vshaxe@0.1.3~preinstall: no script for preinstall, continuing
+54 silly build vshaxe@0.1.3
+55 info linkStuff vshaxe@0.1.3
+56 silly linkStuff vshaxe@0.1.3 has /Users/robert/Projekte/KodeStudio/extensions as its parent node_modules
+57 verbose linkBins vshaxe@0.1.3
+58 verbose linkMans vshaxe@0.1.3
+59 silly install vshaxe@0.1.3 /Users/robert/Projekte/KodeStudio/extensions/haxe/vshaxe-c7059cb0
+60 info lifecycle vshaxe@0.1.3~install: vshaxe@0.1.3
+61 silly lifecycle vshaxe@0.1.3~install: no script for install, continuing
+62 silly postinstall vshaxe@0.1.3 /Users/robert/Projekte/KodeStudio/extensions/haxe/vshaxe-c7059cb0
+63 info lifecycle vshaxe@0.1.3~postinstall: vshaxe@0.1.3
+64 verbose lifecycle vshaxe@0.1.3~postinstall: unsafe-perm in lifecycle true
+65 verbose lifecycle vshaxe@0.1.3~postinstall: PATH: /usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/robert/Projekte/KodeStudio/extensions/haxe/node_modules/.bin:/usr/local/bin:/usr/local/lib/node_modules/npm/bin/node-gyp-bin:/Users/robert/Projekte/KodeStudio/node_modules/.bin:/usr/local/bin:/Users/robert/.opam/4.02.3/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin
+66 verbose lifecycle vshaxe@0.1.3~postinstall: CWD: /Users/robert/Projekte/KodeStudio/extensions/haxe
+67 silly lifecycle vshaxe@0.1.3~postinstall: Args: [ '-c', 'haxe build.hxml' ]
+68 silly lifecycle vshaxe@0.1.3~postinstall: Returned: code: 1  signal: null
+69 info lifecycle vshaxe@0.1.3~postinstall: Failed to exec postinstall script
+70 verbose stack Error: vshaxe@0.1.3 postinstall: `haxe build.hxml`
+70 verbose stack Exit status 1
+70 verbose stack     at EventEmitter.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/lifecycle.js:245:16)
+70 verbose stack     at emitTwo (events.js:106:13)
+70 verbose stack     at EventEmitter.emit (events.js:191:7)
+70 verbose stack     at ChildProcess.<anonymous> (/usr/local/lib/node_modules/npm/lib/utils/spawn.js:24:14)
+70 verbose stack     at emitTwo (events.js:106:13)
+70 verbose stack     at ChildProcess.emit (events.js:191:7)
+70 verbose stack     at maybeClose (internal/child_process.js:850:16)
+70 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:215:5)
+71 verbose pkgid vshaxe@0.1.3
+72 verbose cwd /Users/robert/Projekte/KodeStudio/extensions/haxe
+73 error Darwin 15.6.0
+74 error argv "/usr/local/bin/node" "/usr/local/bin/npm" "install"
+75 error node v6.2.0
+76 error npm  v3.8.9
+77 error code ELIFECYCLE
+78 error vshaxe@0.1.3 postinstall: `haxe build.hxml`
+78 error Exit status 1
+79 error Failed at the vshaxe@0.1.3 postinstall script 'haxe build.hxml'.
+79 error Make sure you have the latest version of node.js and npm installed.
+79 error If you do, this is most likely a problem with the vshaxe package,
+79 error not with npm itself.
+79 error Tell the author that this fails on your system:
+79 error     haxe build.hxml
+79 error You can get information on how to open an issue for this project with:
+79 error     npm bugs vshaxe
+79 error Or if that isn't available, you can get their info via:
+79 error     npm owner ls vshaxe
+79 error There is likely additional logging output above.
+80 verbose exit [ 1, true ]
