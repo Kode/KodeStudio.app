@@ -10,6 +10,7 @@ var TypeScriptSignatureHelpProvider = (function () {
         this.client = client;
     }
     TypeScriptSignatureHelpProvider.prototype.provideSignatureHelp = function (document, position, token) {
+        var _this = this;
         var args = {
             file: this.client.asAbsolutePath(document.uri),
             line: position.line + 1,
@@ -49,11 +50,12 @@ var TypeScriptSignatureHelpProvider = (function () {
             });
             return result;
         }, function (err) {
+            _this.client.error("'signatureHelp' request failed with error.", err);
             return null;
         });
     };
     return TypeScriptSignatureHelpProvider;
 }());
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = TypeScriptSignatureHelpProvider;
-//# sourceMappingURL=signatureHelpProvider.js.map
+exports.default = TypeScriptSignatureHelpProvider;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/typescript/out/features/signatureHelpProvider.js.map

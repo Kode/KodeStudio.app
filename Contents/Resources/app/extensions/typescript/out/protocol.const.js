@@ -34,6 +34,8 @@ var Kind = (function () {
     Kind.const = 'const';
     Kind.let = 'let';
     Kind.warning = 'warning';
+    Kind.directory = 'directory';
+    Kind.file = 'file';
     return Kind;
 }());
 exports.Kind = Kind;
@@ -49,5 +51,5 @@ var KindModifier = (function () {
     KindModifier.static = 'static';
     return KindModifier;
 }());
-exports.KindModifier = KindModifier;
-//# sourceMappingURL=protocol.const.js.map
+exports.KindModifier = KindModifier;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/typescript/out/protocol.const.js.map

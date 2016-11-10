@@ -1,4 +1,5 @@
 "use strict";
+;
 exports.Platform = {
     Windows: 'windows',
     WindowsApp: 'windowsapp',
@@ -12,5 +13,5 @@ exports.Platform = {
     Tizen: 'tizen',
     Pi: 'pi',
     tvOS: 'tvos'
-};
-//# sourceMappingURL=Platform.js.map
+};
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/kha/Kha/Kore/Tools/koremake/out/Platform.js.map

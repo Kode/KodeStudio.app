@@ -22,5 +22,5 @@ function activate(context) {
         wordPattern: /(-?\d*\.\d\w*)|([^\-\`\~\!\@\#\%\^\&\*\(\)\=\+\[\{\]\}\\\|\;\:\'\"\,\.\<\>\/\?\s]+)/g
     });
 }
-exports.activate = activate;
-//# sourceMappingURL=phpMain.js.map
+exports.activate = activate;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/php/out/phpMain.js.map

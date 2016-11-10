@@ -33,7 +33,7 @@ function generatePatchedEnv(env, stdInPipeName, stdOutPipeName, stdErrPipeName) 
     newEnv['STDIN_PIPE_NAME'] = stdInPipeName;
     newEnv['STDOUT_PIPE_NAME'] = stdOutPipeName;
     newEnv['STDERR_PIPE_NAME'] = stdErrPipeName;
-    newEnv['ATOM_SHELL_INTERNAL_RUN_AS_NODE'] = '1';
+    newEnv['ELECTRON_RUN_AS_NODE'] = '1';
     return newEnv;
 }
 function fork(modulePath, args, options, callback) {
@@ -102,5 +102,5 @@ function fork(modulePath, args, options, callback) {
         reject(err);
     });
 }
-exports.fork = fork;
-//# sourceMappingURL=electron.js.map
+exports.fork = fork;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/typescript/out/utils/electron.js.map

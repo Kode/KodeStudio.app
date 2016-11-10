@@ -156,5 +156,5 @@ var PHPSignatureHelpProvider = (function () {
     return PHPSignatureHelpProvider;
 }());
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = PHPSignatureHelpProvider;
-//# sourceMappingURL=signatureHelpProvider.js.map
+exports.default = PHPSignatureHelpProvider;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/php/out/features/signatureHelpProvider.js.map

@@ -39,11 +39,12 @@ var TypeScriptRenameProvider = (function () {
             });
             return result;
         }, function (err) {
+            _this.client.error("'rename' request failed with error.", err);
             return null;
         });
     };
     return TypeScriptRenameProvider;
 }());
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.default = TypeScriptRenameProvider;
-//# sourceMappingURL=renameProvider.js.map
+exports.default = TypeScriptRenameProvider;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/typescript/out/features/renameProvider.js.map

@@ -12,7 +12,14 @@
 	"win32AppUserModelId": "KodeStudio",
 	"darwinBundleIdentifier": "org.kodestudio",
 	"reportIssueUrl": "https://github.com/KTXSoftware/KodeStudio/issues/new",
-	"kodeStudioVersion": "16.8.0",
-	"commit": "c2982f7f61ba1ffdb29724f0d0941872e3e23145",
-	"date": "2016-08-24T13:45:53.913Z"
+	"urlProtocol": "code-oss",
+	"kodeStudioVersion": "16.11.0",
+	"commit": "3aa00786ef8c64b47835d7e70f3591813dbeb22a",
+	"date": "2016-11-10T01:07:27.234Z",
+	"checksums": {
+		"vs/workbench/workbench.main.js": "73Ei5+dAlHB/oawq+Y9B6w",
+		"vs/workbench/workbench.main.css": "DjH7Ts/t01VtbttPcrqgwg",
+		"vs/workbench/electron-browser/bootstrap/index.html": "A7FcwiFQwy0ydQR6MrrRrQ",
+		"vs/workbench/electron-browser/bootstrap/index.js": "vfNUYnBBQPqsmToJR+EMuA"
+	}
 }

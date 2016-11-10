@@ -27,6 +27,7 @@ class Project {
         this.name = name;
         this.sources = [];
         this.defines = [];
+        this.cdefines = [];
         this.parameters = [];
         this.scriptdir = Project.scriptdir;
         this.libraries = [];
@@ -59,7 +60,7 @@ class Project {
         this.assetMatchers.push({ match: match, options: options });
     }
     addSources(source) {
-        this.sources.push(source);
+        this.sources.push(path.resolve(path.join(this.scriptdir, source)));
     }
     /**
      * Add all shaders matching the match regex relative to the directory containing the current khafile.
@@ -77,6 +78,9 @@ class Project {
     }
     addDefine(define) {
         this.defines.push(define);
+    }
+    addCDefine(define) {
+        this.cdefines.push(define);
     }
     addParameter(parameter) {
         this.parameters.push(parameter);
@@ -177,5 +181,5 @@ class Project {
         }
     }
 }
-exports.Project = Project;
-//# sourceMappingURL=Project.js.map
+exports.Project = Project;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/kha/Kha/Tools/khamake/out/Project.js.map

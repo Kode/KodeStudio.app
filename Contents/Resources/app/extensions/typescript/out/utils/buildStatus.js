@@ -13,5 +13,5 @@ function update(info) {
     statusItem.text = info.queueLength.toString();
     statusItem.show();
 }
-exports.update = update;
-//# sourceMappingURL=buildStatus.js.map
+exports.update = update;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/typescript/out/utils/buildStatus.js.map

@@ -15,7 +15,7 @@ function run(from, to, width, height, format, background, callback) {
         params.push('background=' + background.toString(16));
     let child = cp.spawn(path.join(__dirname, '..', '..', 'kraffiti', exe), params);
     child.stdout.on('data', (data) => {
-        //log.info('kraffiti stdout: ' + data);
+        // log.info('kraffiti stdout: ' + data);
     });
     child.stderr.on('data', (data) => {
         log.error('kraffiti stderr: ' + data);
@@ -46,5 +46,5 @@ exports.exportIcns = exportIcns;
 function exportPng(to, width, height, background, from) {
     run(findIcon(from.toString()), to.toString(), width, height, 'png', background, function () { });
 }
-exports.exportPng = exportPng;
-//# sourceMappingURL=Icon.js.map
+exports.exportPng = exportPng;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/kha/Kha/Kore/Tools/koremake/out/Icon.js.map
