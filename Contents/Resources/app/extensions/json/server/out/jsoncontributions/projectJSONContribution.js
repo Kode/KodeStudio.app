@@ -259,4 +259,4 @@ function matches(segments, pattern) {
     }
     return k === pattern.length;
 }
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/e487d956801b805e4798d1546772939dbfa8a924/extensions/json/server/out/jsoncontributions/projectJSONContribution.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/06129d35b9c466fc51adeddaa91516421e38ae12/extensions/json/server/out/jsoncontributions/projectJSONContribution.js.map

@@ -10,11 +10,11 @@
 		</data>
 		<key>Resources/macos/Krom.app/Contents/Info.plist</key>
 		<data>
-		gx3jZEuO3rbamY/Bt3mmw9qpyWA=
+		PcBmdOrwh4hjFZIkhQ5n1ntkhqI=
 		</data>
 		<key>Resources/macos/Krom.app/Contents/MacOS/Krom</key>
 		<data>
-		2Eu4NGn9/WJ3Jx1Iv5Uw9awjxRo=
+		szSi5rPubbzGpLCYUSfj8//ANkE=
 		</data>
 		<key>Resources/macos/Krom.app/Contents/PkgInfo</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Resources/macos/Krom.app/Contents/_CodeSignature/CodeResources</key>
 		<data>
-		eCg7JPBjIU7EGjKStl+ESxrtb6s=
+		lD/sD1aa+uQ9Jg60n3Gf3ZEPGUA=
 		</data>
 		<key>Resources/macos/libicui18n.dylib</key>
 		<data>
@@ -80,38 +80,6 @@
 		<data>
 		anS3wxniEUrmeAmixMarLXyyv6E=
 		</data>
-		<key>Resources/macos/painter-colored.frag</key>
-		<data>
-		StFpL5cPjDy7d2ByPPeHk1gCFJA=
-		</data>
-		<key>Resources/macos/painter-colored.vert</key>
-		<data>
-		d/aA2YqYaf3a4l5K28FmlPFwJfg=
-		</data>
-		<key>Resources/macos/painter-image.frag</key>
-		<data>
-		/F/gYMg6lKMUxhI8J6kdJSjdJO8=
-		</data>
-		<key>Resources/macos/painter-image.vert</key>
-		<data>
-		cJrLR+2aDs56U9ir32umyneAs3E=
-		</data>
-		<key>Resources/macos/painter-text.frag</key>
-		<data>
-		r8ULWfYcYGApTI1Kqulfsfj+SKQ=
-		</data>
-		<key>Resources/macos/painter-text.vert</key>
-		<data>
-		bqaDfKQ8odHkrh8Bw5nMrPF83c8=
-		</data>
-		<key>Resources/macos/painter-video.frag</key>
-		<data>
-		/F/gYMg6lKMUxhI8J6kdJSjdJO8=
-		</data>
-		<key>Resources/macos/painter-video.vert</key>
-		<data>
-		cJrLR+2aDs56U9ir32umyneAs3E=
-		</data>
 		<key>Resources/macos/snapshot_blob.bin</key>
 		<data>
 		vanBCjBk5Nkb62REIOVpr+aEy8U=
@@ -134,22 +102,22 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			gx3jZEuO3rbamY/Bt3mmw9qpyWA=
+			PcBmdOrwh4hjFZIkhQ5n1ntkhqI=
 			</data>
 			<key>hash2</key>
 			<data>
-			U6DlIeLuBBz+MmkMI3Tk6SE1gIxeN+AkgrmEdtdcu6I=
+			FmtesA1RPo4wXWpKZZOGc67D8JLvBNQsuZ/N9FjEy0I=
 			</data>
 		</dict>
 		<key>Resources/macos/Krom.app/Contents/MacOS/Krom</key>
 		<dict>
 			<key>hash</key>
 			<data>
-			2Eu4NGn9/WJ3Jx1Iv5Uw9awjxRo=
+			szSi5rPubbzGpLCYUSfj8//ANkE=
 			</data>
 			<key>hash2</key>
 			<data>
-			rJ1o8wAoJzso73vvDpnetEc5RZ9h8MXvCXhTouANRjw=
+			Vn7MaJHrIvcdO3tzQ61E2pS8teP+TVphblEYs7Hi6HE=
 			</data>
 		</dict>
 		<key>Resources/macos/Krom.app/Contents/PkgInfo</key>
@@ -255,11 +223,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			eCg7JPBjIU7EGjKStl+ESxrtb6s=
+			lD/sD1aa+uQ9Jg60n3Gf3ZEPGUA=
 			</data>
 			<key>hash2</key>
 			<data>
-			DHYovzKOYmZa1pxaszWP/t4I3siJrQUI8bjRyfsPiZQ=
+			e6fQ0CUvtXkBDCuIUVf4d0fVdps4obA0ekTfDkeNus0=
 			</data>
 		</dict>
 		<key>Resources/macos/libicui18n.dylib</key>
@@ -326,94 +294,6 @@
 			<key>hash2</key>
 			<data>
 			SxC/EgQAoipRQCAFSvILIlIjJwZqH+MzXkDOtUdUb7U=
-			</data>
-		</dict>
-		<key>Resources/macos/painter-colored.frag</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			StFpL5cPjDy7d2ByPPeHk1gCFJA=
-			</data>
-			<key>hash2</key>
-			<data>
-			VeBISQSroqV/byWtNvRMyxsU9PDjrkme4uGVVBpbhZI=
-			</data>
-		</dict>
-		<key>Resources/macos/painter-colored.vert</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			d/aA2YqYaf3a4l5K28FmlPFwJfg=
-			</data>
-			<key>hash2</key>
-			<data>
-			9LEMq/w+cIdQlK/3LLCdGLi2gLstLAZW2FsfQHG7dlA=
-			</data>
-		</dict>
-		<key>Resources/macos/painter-image.frag</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/F/gYMg6lKMUxhI8J6kdJSjdJO8=
-			</data>
-			<key>hash2</key>
-			<data>
-			8UHUGzR1DiDrMura13NDZJinBRB5trz74ZshNPalh58=
-			</data>
-		</dict>
-		<key>Resources/macos/painter-image.vert</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cJrLR+2aDs56U9ir32umyneAs3E=
-			</data>
-			<key>hash2</key>
-			<data>
-			R1k+L1Jymc5yL3yVuP+09jTFQlV2V1l4pzxdtTe1s2A=
-			</data>
-		</dict>
-		<key>Resources/macos/painter-text.frag</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			r8ULWfYcYGApTI1Kqulfsfj+SKQ=
-			</data>
-			<key>hash2</key>
-			<data>
-			jgWgJvtfh+mxwn8lqMtuGpTNrVbDMfxOROPjecKjuvs=
-			</data>
-		</dict>
-		<key>Resources/macos/painter-text.vert</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			bqaDfKQ8odHkrh8Bw5nMrPF83c8=
-			</data>
-			<key>hash2</key>
-			<data>
-			W+xHWzwImTDaXvdcvqsq1OpNcsQ998WLpKhWTAeT21w=
-			</data>
-		</dict>
-		<key>Resources/macos/painter-video.frag</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			/F/gYMg6lKMUxhI8J6kdJSjdJO8=
-			</data>
-			<key>hash2</key>
-			<data>
-			8UHUGzR1DiDrMura13NDZJinBRB5trz74ZshNPalh58=
-			</data>
-		</dict>
-		<key>Resources/macos/painter-video.vert</key>
-		<dict>
-			<key>hash</key>
-			<data>
-			cJrLR+2aDs56U9ir32umyneAs3E=
-			</data>
-			<key>hash2</key>
-			<data>
-			R1k+L1Jymc5yL3yVuP+09jTFQlV2V1l4pzxdtTe1s2A=
 			</data>
 		</dict>
 		<key>Resources/macos/snapshot_blob.bin</key>

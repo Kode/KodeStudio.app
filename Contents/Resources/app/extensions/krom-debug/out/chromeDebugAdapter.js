@@ -91,8 +91,8 @@ class ChromeDebugAdapter extends vscode_chrome_debug_core_1.ChromeDebugAdapter {
                     return vscode_chrome_debug_core_1.utils.errP(`Can't find Krom.`);
                 }
                 // Start with remote debugging enabled
-                const port = args.port || 9224;
-                const kromArgs = [path.join(args.cwd, 'build', 'krom'), path.join(args.cwd, 'build', 'krom-resources')];
+                const port = args.port || Math.floor((Math.random() * 10000) + 10000);
+                const kromArgs = [path.join(args.cwd, 'build', 'krom'), path.join(args.cwd, 'build', 'krom-resources'), '--debug', port.toString(), '--watch'];
                 vscode_chrome_debug_core_1.logger.log(`spawn('${kromPath}', ${JSON.stringify(kromArgs)})`);
                 this._chromeProc = child_process_1.spawn(kromPath, kromArgs, {
                     detached: true,
@@ -185,4 +185,4 @@ function resolveWebRootPattern(webRoot, sourceMapPathOverrides, warnOnMissing) {
     return resolvedOverrides;
 }
 exports.resolveWebRootPattern = resolveWebRootPattern;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/e487d956801b805e4798d1546772939dbfa8a924/extensions/krom-debug/out/chromeDebugAdapter.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/06129d35b9c466fc51adeddaa91516421e38ae12/extensions/krom-debug/out/chromeDebugAdapter.js.map
