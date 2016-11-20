@@ -120,4 +120,4 @@ function getEmbeddedContentForNode(languageService, document, node) {
 function isWhitespace(str) {
     return str.match(/^\s*$/);
 }
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/html/server/out/embeddedSupport.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/e487d956801b805e4798d1546772939dbfa8a924/extensions/html/server/out/embeddedSupport.js.map

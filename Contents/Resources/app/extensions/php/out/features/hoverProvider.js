@@ -26,4 +26,4 @@ var PHPHoverProvider = (function () {
 }());
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = PHPHoverProvider;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/php/out/features/hoverProvider.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/e487d956801b805e4798d1546772939dbfa8a924/extensions/php/out/features/hoverProvider.js.map

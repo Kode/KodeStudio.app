@@ -105,7 +105,8 @@ class ChromeDebugAdapter extends vscode_chrome_debug_core_1.ChromeDebugAdapter {
                 return this.doAttach(port, launchUrl, args.address);
             }, (reason) => {
                 vscode_chrome_debug_core_1.logger.error('Launch canceled.', true);
-                return new Promise((resolve) => {
+                return new Promise((resolve, reject) => {
+                    reject({ id: Math.floor(Math.random() * 100000), format: 'Compilation failed.' });
                 });
             });
         });
@@ -167,4 +168,4 @@ function resolveWebRootPattern(webRoot, sourceMapPathOverrides, warnOnMissing) {
     return resolvedOverrides;
 }
 exports.resolveWebRootPattern = resolveWebRootPattern;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/chrome-debug/out/chromeDebugAdapter.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/e487d956801b805e4798d1546772939dbfa8a924/extensions/chrome-debug/out/chromeDebugAdapter.js.map

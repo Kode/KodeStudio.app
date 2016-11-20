@@ -21,4 +21,4 @@ vscode_chrome_debug_core_1.ChromeDebugSession.run(vscode_chrome_debug_core_1.Chr
     sourceMapTransformer: vscode_chrome_debug_core_1.BaseSourceMapTransformer,
 }));
 // logger.log(EXTENSION_NAME + ': ' + VERSION); // This would crash because we do not use webpack
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/krom-debug/out/chromeDebug.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/e487d956801b805e4798d1546772939dbfa8a924/extensions/krom-debug/out/chromeDebug.js.map

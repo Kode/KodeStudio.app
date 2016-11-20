@@ -162,4 +162,4 @@ function computeLargeRoots(configFileName, fileNames) {
     return result;
 }
 var defaultConfig = "{\n\t" + localize(9, null) + "\n\t\"compilerOptions\": {\n\t\t\"target\": \"es6\",\n\t\t\"module\": \"commonjs\",\n\t\t\"allowSyntheticDefaultImports\": true\n\t},\n\t\"exclude\": [\n\t\t\"node_modules\",\n\t\t\"bower_components\",\n\t\t\"jspm_packages\",\n\t\t\"tmp\",\n\t\t\"temp\"\n\t]\n}\n";
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/typescript/out/utils/projectStatus.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/e487d956801b805e4798d1546772939dbfa8a924/extensions/typescript/out/utils/projectStatus.js.map

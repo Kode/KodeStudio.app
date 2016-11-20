@@ -41,6 +41,10 @@ class ShaderCompiler {
         this.builddir = builddir;
         this.shaderMatchers = shaderMatchers;
     }
+    close() {
+        if (this.watcher)
+            this.watcher.close();
+    }
     static findType(platform, options) {
         switch (platform) {
             case Platform_1.Platform.Empty:
@@ -124,24 +128,36 @@ class ShaderCompiler {
             let shaders = [];
             let ready = false;
             this.watcher = chokidar.watch(match, { ignored: /[\/\\]\./, persistent: watch });
-            this.watcher.on('add', (file) => {
+            this.watcher.on('add', (filepath) => {
+                let file = path.parse(filepath);
                 if (ready) {
-                    switch (path.parse(file).ext) {
+                    switch (file.ext) {
                         case '.glsl':
-                            log.info('Recompiling ' + path.parse(file).name);
-                            this.compileShader(file, options);
+                            if (!file.name.endsWith('.inc')) {
+                                log.info('Compiling ' + file.name);
+                                this.compileShader(filepath, options);
+                            }
                             break;
                     }
                 }
                 else {
-                    shaders.push(file);
+                    switch (file.ext) {
+                        case '.glsl':
+                            if (!file.name.endsWith('.inc')) {
+                                shaders.push(filepath);
+                            }
+                            break;
+                    }
                 }
             });
-            this.watcher.on('change', (file) => {
-                switch (path.parse(file).ext) {
+            this.watcher.on('change', (filepath) => {
+                let file = path.parse(filepath);
+                switch (file.ext) {
                     case '.glsl':
-                        log.info('Recompiling ' + path.parse(file).name);
-                        this.compileShader(file, options);
+                        if (!file.name.endsWith('.inc')) {
+                            log.info('Recompiling ' + file.name);
+                            this.compileShader(filepath, options);
+                        }
                         break;
                 }
             });
@@ -310,4 +326,4 @@ class ShaderCompiler {
     }
 }
 exports.ShaderCompiler = ShaderCompiler;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/3aa00786ef8c64b47835d7e70f3591813dbeb22a/extensions/kha/Kha/Tools/khamake/out/ShaderCompiler.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/e487d956801b805e4798d1546772939dbfa8a924/extensions/kha/Kha/Tools/khamake/out/ShaderCompiler.js.map
