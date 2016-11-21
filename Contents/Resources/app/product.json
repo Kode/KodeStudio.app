@@ -14,8 +14,8 @@
 	"reportIssueUrl": "https://github.com/KTXSoftware/KodeStudio/issues/new",
 	"urlProtocol": "code-oss",
 	"kodeStudioVersion": "16.11.1",
-	"commit": "06129d35b9c466fc51adeddaa91516421e38ae12",
-	"date": "2016-11-20T23:44:09.288Z",
+	"commit": "ec6a2e2a3863b88611e4b077fcab9a568132a8d0",
+	"date": "2016-11-21T00:13:12.244Z",
 	"checksums": {
 		"vs/workbench/workbench.main.js": "trP+/i6vX0Iuib6eRcDHIQ",
 		"vs/workbench/workbench.main.css": "DjH7Ts/t01VtbttPcrqgwg",

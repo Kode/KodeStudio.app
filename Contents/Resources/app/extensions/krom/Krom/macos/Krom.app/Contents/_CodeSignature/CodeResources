@@ -14,7 +14,7 @@
 		</data>
 		<key>Resources/macos/Krom.app/Contents/MacOS/Krom</key>
 		<data>
-		szSi5rPubbzGpLCYUSfj8//ANkE=
+		qvXHXY3lYOIgqseIqp8pvcgLxAg=
 		</data>
 		<key>Resources/macos/Krom.app/Contents/PkgInfo</key>
 		<data>
@@ -54,7 +54,7 @@
 		</data>
 		<key>Resources/macos/Krom.app/Contents/_CodeSignature/CodeResources</key>
 		<data>
-		lD/sD1aa+uQ9Jg60n3Gf3ZEPGUA=
+		SRTLHDXzTBRfoQgcWk9iPqFcIYI=
 		</data>
 		<key>Resources/macos/libicui18n.dylib</key>
 		<data>
@@ -113,11 +113,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			szSi5rPubbzGpLCYUSfj8//ANkE=
+			qvXHXY3lYOIgqseIqp8pvcgLxAg=
 			</data>
 			<key>hash2</key>
 			<data>
-			Vn7MaJHrIvcdO3tzQ61E2pS8teP+TVphblEYs7Hi6HE=
+			bTQygHwAZxlgGvw4Fg4ZmrCsAWJqy8WGugEWoUxFW+0=
 			</data>
 		</dict>
 		<key>Resources/macos/Krom.app/Contents/PkgInfo</key>
@@ -223,11 +223,11 @@
 		<dict>
 			<key>hash</key>
 			<data>
-			lD/sD1aa+uQ9Jg60n3Gf3ZEPGUA=
+			SRTLHDXzTBRfoQgcWk9iPqFcIYI=
 			</data>
 			<key>hash2</key>
 			<data>
-			e6fQ0CUvtXkBDCuIUVf4d0fVdps4obA0ekTfDkeNus0=
+			zIZqUUX3ito64CwYVSQa9FoFF1TcAwayL87uamRckfs=
 			</data>
 		</dict>
 		<key>Resources/macos/libicui18n.dylib</key>

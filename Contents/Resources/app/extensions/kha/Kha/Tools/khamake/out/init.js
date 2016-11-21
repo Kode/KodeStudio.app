@@ -46,4 +46,4 @@ function run(name, from, projectfile) {
     }
 }
 exports.run = run;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/06129d35b9c466fc51adeddaa91516421e38ae12/extensions/kha/Kha/Tools/khamake/out/init.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ec6a2e2a3863b88611e4b077fcab9a568132a8d0/extensions/kha/Kha/Tools/khamake/out/init.js.map
