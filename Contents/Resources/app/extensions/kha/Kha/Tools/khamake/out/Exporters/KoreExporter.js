@@ -19,13 +19,6 @@ class KoreExporter extends KhaExporter_1.KhaExporter {
         this.addSourceDirectory(path.join(options.kha, 'Backends', 'Kore'));
         // Files.removeDirectory(this.directory.resolve(Paths.get(this.sysdir() + "-build", "Sources")));
     }
-    sysdir() {
-        if (this.options.target === 'android')
-            return 'android-native';
-        else if (this.options.target === 'html5')
-            return 'html5-native';
-        return this.options.target;
-    }
     haxeOptions(name, targetOptions, defines) {
         defines.push('no-compilation');
         defines.push('sys_' + this.options.target);
@@ -84,7 +77,7 @@ class KoreExporter extends KhaExporter_1.KhaExporter {
                 return [to + '.' + format];
             }
             else {
-                let format = yield ImageTool_1.exportImage(this.options.kha, from, path.join(this.options.to, this.sysdir(), to), options, undefined /*'snappy'*/, true);
+                let format = yield ImageTool_1.exportImage(this.options.kha, from, path.join(this.options.to, this.sysdir(), to), options, 'lz4', true);
                 return [to + '.' + format];
             }
         });
@@ -114,4 +107,4 @@ class KoreExporter extends KhaExporter_1.KhaExporter {
     }
 }
 exports.KoreExporter = KoreExporter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ec6a2e2a3863b88611e4b077fcab9a568132a8d0/extensions/kha/Kha/Tools/khamake/out/Exporters/KoreExporter.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Tools/khamake/out/Exporters/KoreExporter.js.map

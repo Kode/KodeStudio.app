@@ -11,8 +11,12 @@ var TypeScriptReferenceSupport = (function () {
     }
     TypeScriptReferenceSupport.prototype.provideReferences = function (document, position, options, token) {
         var _this = this;
+        var filepath = this.client.asAbsolutePath(document.uri);
+        if (!filepath) {
+            return Promise.resolve([]);
+        }
         var args = {
-            file: this.client.asAbsolutePath(document.uri),
+            file: filepath,
             line: position.line + 1,
             offset: position.character + 1
         };
@@ -22,6 +26,9 @@ var TypeScriptReferenceSupport = (function () {
         var apiVersion = this.client.apiVersion;
         return this.client.execute('references', args, token).then(function (msg) {
             var result = [];
+            if (!msg.body) {
+                return result;
+            }
             var refs = msg.body.refs;
             for (var i = 0; i < refs.length; i++) {
                 var ref = refs[i];
@@ -42,4 +49,4 @@ var TypeScriptReferenceSupport = (function () {
 }());
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.default = TypeScriptReferenceSupport;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ec6a2e2a3863b88611e4b077fcab9a568132a8d0/extensions/typescript/out/features/referenceProvider.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/typescript/out/features/referenceProvider.js.map

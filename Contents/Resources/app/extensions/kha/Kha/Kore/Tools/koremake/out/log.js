@@ -18,4 +18,4 @@ function error(text) {
     myError(text);
 }
 exports.error = error;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ec6a2e2a3863b88611e4b077fcab9a568132a8d0/extensions/kha/Kha/Kore/Tools/koremake/out/log.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Kore/Tools/koremake/out/log.js.map

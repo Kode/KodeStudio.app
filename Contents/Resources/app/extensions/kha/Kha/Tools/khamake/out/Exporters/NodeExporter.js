@@ -7,9 +7,6 @@ class NodeExporter extends Html5Exporter_1.Html5Exporter {
         this.removeSourceDirectory(path.join(options.kha, 'Backends', 'HTML5'));
         this.addSourceDirectory(path.join(options.kha, 'Backends', 'Node'));
     }
-    sysdir() {
-        return 'node';
-    }
 }
 exports.NodeExporter = NodeExporter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ec6a2e2a3863b88611e4b077fcab9a568132a8d0/extensions/kha/Kha/Tools/khamake/out/Exporters/NodeExporter.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Tools/khamake/out/Exporters/NodeExporter.js.map

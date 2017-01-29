@@ -19,11 +19,11 @@ var nls = require('vscode-nls');
 nls.config(process.env['VSCODE_NLS_CONFIG']);
 var SchemaAssociationNotification;
 (function (SchemaAssociationNotification) {
-    SchemaAssociationNotification.type = { get method() { return 'json/schemaAssociations'; } };
+    SchemaAssociationNotification.type = { get method() { return 'json/schemaAssociations'; }, _: null };
 })(SchemaAssociationNotification || (SchemaAssociationNotification = {}));
 var VSCodeContentRequest;
 (function (VSCodeContentRequest) {
-    VSCodeContentRequest.type = { get method() { return 'vscode/content'; } };
+    VSCodeContentRequest.type = { get method() { return 'vscode/content'; }, _: null };
 })(VSCodeContentRequest || (VSCodeContentRequest = {}));
 // Create a connection for the server
 var connection = vscode_languageserver_1.createConnection();
@@ -230,4 +230,4 @@ connection.onDocumentRangeFormatting(function (formatParams) {
 });
 // Listen on the connection
 connection.listen();
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ec6a2e2a3863b88611e4b077fcab9a568132a8d0/extensions/json/server/out/jsonServerMain.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/json/server/out/jsonServerMain.js.map

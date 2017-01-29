@@ -17,9 +17,6 @@ class PlayStationMobileExporter extends CSharpExporter_1.CSharpExporter {
         super(options);
         this.files = [];
     }
-    sysdir() {
-        return 'psm';
-    }
     backend() {
         return 'PSM';
     }
@@ -160,4 +157,4 @@ class PlayStationMobileExporter extends CSharpExporter_1.CSharpExporter {
     }
 }
 exports.PlayStationMobileExporter = PlayStationMobileExporter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ec6a2e2a3863b88611e4b077fcab9a568132a8d0/extensions/kha/Kha/Tools/khamake/out/Exporters/PlayStationMobileExporter.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Tools/khamake/out/Exporters/PlayStationMobileExporter.js.map

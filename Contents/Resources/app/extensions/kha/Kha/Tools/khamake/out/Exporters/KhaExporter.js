@@ -21,6 +21,9 @@ class KhaExporter extends Exporter_1.Exporter {
         this.projectFiles = !options.noproject;
         this.parameters = [];
     }
+    sysdir() {
+        return this.systemDirectory;
+    }
     setWidthAndHeight(width, height) {
         this.width = width;
         this.height = height;
@@ -28,6 +31,9 @@ class KhaExporter extends Exporter_1.Exporter {
     setName(name) {
         this.name = name;
         this.safename = name.replace(/ /g, '-');
+    }
+    setSystemDirectory(systemDirectory) {
+        this.systemDirectory = systemDirectory;
     }
     addShader(shader) {
     }
@@ -72,4 +78,4 @@ class KhaExporter extends Exporter_1.Exporter {
     }
 }
 exports.KhaExporter = KhaExporter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ec6a2e2a3863b88611e4b077fcab9a568132a8d0/extensions/kha/Kha/Tools/khamake/out/Exporters/KhaExporter.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Tools/khamake/out/Exporters/KhaExporter.js.map
