@@ -1,8 +1,9 @@
 "use strict";
-const child_process = require('child_process');
-const fs = require('fs');
-const path = require('path');
-const log = require('./log');
+Object.defineProperty(exports, "__esModule", { value: true });
+const child_process = require("child_process");
+const fs = require("fs");
+const path = require("path");
+const log = require("./log");
 class Library {
 }
 exports.Library = Library;
@@ -92,6 +93,9 @@ class Project {
         this.addDefine(library);
         let self = this;
         function findLibraryDirectory(name) {
+            if (path.isAbsolute(name)) {
+                return { libpath: name, libroot: name };
+            }
             // Tries to load the default library from inside the kha project.
             // e.g. 'Libraries/wyngine'
             let libpath = path.join(self.scriptdir, self.localLibraryPath, name);
@@ -182,4 +186,4 @@ class Project {
     }
 }
 exports.Project = Project;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Tools/khamake/out/Project.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/Project.js.map

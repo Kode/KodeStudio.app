@@ -1,4 +1,5 @@
 "use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
 exports.Platform = {
     Krom: 'krom',
     Windows: 'windows',
@@ -24,4 +25,4 @@ exports.Platform = {
     Pi: 'pi',
     tvOS: 'tvos'
 };
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Tools/khamake/out/Platform.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/Platform.js.map

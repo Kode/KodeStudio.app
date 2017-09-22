@@ -1,5 +1,6 @@
 "use strict";
-const fs = require('fs-extra');
+Object.defineProperty(exports, "__esModule", { value: true });
+const fs = require("fs-extra");
 function printElement(elem, data, indents) {
     for (let i = 0; i < indents; ++i)
         data += '\t';
@@ -48,4 +49,4 @@ function writeXml(xml, path) {
     fs.outputFileSync(path, data);
 }
 exports.writeXml = writeXml;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Tools/khamake/out/XmlWriter.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/XmlWriter.js.map

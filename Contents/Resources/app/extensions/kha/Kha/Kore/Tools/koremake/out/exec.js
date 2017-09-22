@@ -1,5 +1,6 @@
 "use strict";
-const os = require('os');
+Object.defineProperty(exports, "__esModule", { value: true });
+const os = require("os");
 function sys() {
     if (os.platform() === 'linux') {
         if (os.arch() === 'arm')
@@ -17,4 +18,4 @@ function sys() {
     }
 }
 exports.sys = sys;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/ebff2335d0f58a5b01ac50cb66737f4694ec73f3/extensions/kha/Kha/Kore/Tools/koremake/out/exec.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Kore/Tools/koremake/out/exec.js.map
