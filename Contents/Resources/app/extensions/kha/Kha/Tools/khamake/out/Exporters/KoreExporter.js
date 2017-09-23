@@ -131,5 +131,5 @@ class KoreExporter extends KhaExporter_1.KhaExporter {
         });
     }
 }
-exports.KoreExporter = KoreExporter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/Exporters/KoreExporter.js.map
+exports.KoreExporter = KoreExporter;
+//# sourceMappingURL=KoreExporter.js.map

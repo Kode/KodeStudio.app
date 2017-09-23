@@ -80,5 +80,5 @@ class KhaExporter extends Exporter_1.Exporter {
         });
     }
 }
-exports.KhaExporter = KhaExporter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/Exporters/KhaExporter.js.map
+exports.KhaExporter = KhaExporter;
+//# sourceMappingURL=KhaExporter.js.map

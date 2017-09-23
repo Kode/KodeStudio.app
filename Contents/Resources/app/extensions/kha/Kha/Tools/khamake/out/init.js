@@ -46,5 +46,5 @@ function run(name, from, projectfile) {
         fs.writeFileSync(path.join(from, 'Sources', friendlyName + '.hx'), projectsource, { encoding: 'utf8' });
     }
 }
-exports.run = run;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/init.js.map
+exports.run = run;
+//# sourceMappingURL=init.js.map

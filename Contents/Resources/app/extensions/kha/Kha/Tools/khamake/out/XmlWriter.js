@@ -48,5 +48,5 @@ function writeXml(xml, path) {
     data += '</' + xml.n + '>\n';
     fs.outputFileSync(path, data);
 }
-exports.writeXml = writeXml;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/XmlWriter.js.map
+exports.writeXml = writeXml;
+//# sourceMappingURL=XmlWriter.js.map

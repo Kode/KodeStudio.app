@@ -69,5 +69,5 @@ class ClCompile extends Block_1.Block {
         this.tagEnd('ClCompile');
     }
 }
-exports.ClCompile = ClCompile;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Kore/Tools/koremake/out/ClCompile.js.map
+exports.ClCompile = ClCompile;
+//# sourceMappingURL=ClCompile.js.map

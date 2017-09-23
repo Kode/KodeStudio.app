@@ -151,5 +151,5 @@ class FlashExporter extends KhaExporter_1.KhaExporter {
             this.blobs.push(shader);
     }
 }
-exports.FlashExporter = FlashExporter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/Exporters/FlashExporter.js.map
+exports.FlashExporter = FlashExporter;
+//# sourceMappingURL=FlashExporter.js.map

@@ -377,5 +377,5 @@ function writeHaxeProject(projectdir, options) {
     FlashDevelop(projectdir, options);
     IntelliJ(projectdir, options);
 }
-exports.writeHaxeProject = writeHaxeProject;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/HaxeProject.js.map
+exports.writeHaxeProject = writeHaxeProject;
+//# sourceMappingURL=HaxeProject.js.map

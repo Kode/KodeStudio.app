@@ -44,5 +44,5 @@ function convert(inFilename, outFilename, encoder, args = null) {
     });
 }
 exports.convert = convert;
-;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/Converter.js.map
+;
+//# sourceMappingURL=Converter.js.map

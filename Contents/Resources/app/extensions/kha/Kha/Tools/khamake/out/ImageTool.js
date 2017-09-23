@@ -167,5 +167,5 @@ function exportImage(kha, from, to, options, format, prealpha, poweroftwo, cache
         return outputformat;
     });
 }
-exports.exportImage = exportImage;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Tools/khamake/out/ImageTool.js.map
+exports.exportImage = exportImage;
+//# sourceMappingURL=ImageTool.js.map

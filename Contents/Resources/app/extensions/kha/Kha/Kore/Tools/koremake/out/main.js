@@ -431,5 +431,5 @@ function run(options, loglog) {
         return solutionName;
     });
 }
-exports.run = run;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Kore/Tools/koremake/out/main.js.map
+exports.run = run;
+//# sourceMappingURL=main.js.map

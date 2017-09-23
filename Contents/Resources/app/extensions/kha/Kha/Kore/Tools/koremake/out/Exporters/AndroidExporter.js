@@ -114,5 +114,5 @@ class AndroidExporter extends Exporter_1.Exporter {
             fs.copySync(path.resolve(from, project.getDebugDir()), path.resolve(to, safename, 'app', 'src', 'main', 'assets'));
     }
 }
-exports.AndroidExporter = AndroidExporter;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/kha/Kha/Kore/Tools/koremake/out/Exporters/AndroidExporter.js.map
+exports.AndroidExporter = AndroidExporter;
+//# sourceMappingURL=AndroidExporter.js.map
