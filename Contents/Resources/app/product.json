@@ -9,20 +9,26 @@
 	"win32DirName": "Kode Studio",
 	"win32NameVersion": "KodeStudio",
 	"win32RegValueName": "KodeStudio",
-	"win32AppId": "{{ECE45C28-F38E-4259-8F3D-BCA7517D8A4B}",
+	"win32AppId": "{{E34003BB-9E10-4501-8C11-BE3FAA83F23F}",
+	"win32x64AppId": "{{D77B7E06-80BA-4137-BCF4-654B95CCEBC5}",
+	"win32UserAppId": "{{C6065F05-9603-4FC4-8101-B9781A25D88E}",
+	"win32x64UserAppId": "{{C6065F05-9603-4FC4-8101-B9781A25D88E}",
 	"win32AppUserModelId": "KodeStudio",
 	"win32ShellNameShort": "K&ode",
 	"darwinBundleIdentifier": "org.kodestudio",
 	"reportIssueUrl": "https://github.com/Kode/KodeStudio/issues/new",
 	"urlProtocol": "code-oss",
-	"kodeStudioVersion": "17.9.1",
-	"commit": "1d9d255f12f745e416dfb0fb0d2499cfea3aa37f",
-	"date": "2017-09-22T23:25:36.054Z",
+	"extensionAllowedProposedApi": [
+		"ms-vscode.node-debug",
+		"ms-vscode.node-debug2"
+	],
+	"kodeStudioVersion": "18.9.0",
+	"commit": "b4f62a65292c32b44a9c2ab7739390fd05d4df2a",
+	"date": "2018-09-19T23:24:13.415Z",
 	"checksums": {
-		"vs/workbench/workbench.main.js": "wtMXjLS75OleBkLgkCpGRQ",
-		"vs/workbench/workbench.main.css": "Fy/zoAuF09bK/FqAHcgh9g",
-		"vs/workbench/electron-browser/bootstrap/index.html": "Rbr+xqmaFODIjpdAuL4sFA",
-		"vs/workbench/electron-browser/bootstrap/index.js": "NVMFZPCPWkIYOejMsPdqNg",
-		"vs/workbench/electron-browser/bootstrap/preload.js": "Iz0OQT3IJpYCbJsAQ/heNw"
+		"vs/workbench/workbench.main.js": "ZEku9itYPQqxmGrhyJ4uKw",
+		"vs/workbench/workbench.main.css": "qYJNTN2JH433M5XgWwsEvg",
+		"vs/code/electron-browser/workbench/workbench.html": "8oljjuhrm+xZ2LcVLBFCFA",
+		"vs/code/electron-browser/workbench/workbench.js": "4NmdLBmmGqGe99wmL6LPug"
 	}
 }

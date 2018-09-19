@@ -5,13 +5,7 @@
  * Copyright (c) Microsoft Corporation. All rights reserved.
  *--------------------------------------------------------*/
 define("vs/workbench/services/search/node/worker/searchWorkerApp.nls", {
-	"vs/base/common/processes": [
-		"Error: executable info must define a command of type string.",
-		"Warning: isShellCommand must be of type boolean. Ignoring value {0}.",
-		"Warning: args must be of type string[]. Ignoring value {0}.",
-		"Warning: options.cwd must be of type string. Ignoring value {0}."
-	],
 	"vs/base/node/processes": [
-		"Can't execute a shell command on an UNC drive."
+		"Can't execute a shell command on a UNC drive."
 	]
 });

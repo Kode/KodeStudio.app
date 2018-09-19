@@ -18,8 +18,8 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     function step(op) {
         if (f) throw new TypeError("Generator is already executing.");
         while (_) try {
-            if (f = 1, y && (t = y[op[0] & 2 ? "return" : op[0] ? "throw" : "next"]) && !(t = t.call(y, op[1])).done) return t;
-            if (y = 0, t) op = [0, t.value];
+            if (f = 1, y && (t = op[0] & 2 ? y["return"] : op[0] ? y["throw"] || ((t = y["return"]) && t.call(y), 0) : y.next) && !(t = t.call(y, op[1])).done) return t;
+            if (y = 0, t) op = [op[0] & 2, t.value];
             switch (op[0]) {
                 case 0: case 1: t = op; break;
                 case 4: _.label++; return { value: op[1], done: false };
@@ -39,16 +39,14 @@ var __generator = (this && this.__generator) || function (thisArg, body) {
     }
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var fs = require("fs");
 var path = require("path");
-var jsonc_parser_1 = require("jsonc-parser");
+var fs = require("fs");
 var nls = require("vscode-nls");
-var MarkdownIt = require("markdown-it");
-var parse5 = require("parse5");
-var vscode_1 = require("vscode");
-var product = require('../../../product.json');
-var allowedBadgeProviders = (product.extensionAllowedBadgeProviders || []).map(function (s) { return s.toLowerCase(); });
 var localize = nls.loadMessageBundle(__filename);
+var jsonc_parser_1 = require("jsonc-parser");
+var vscode_1 = require("vscode");
+var product = JSON.parse(fs.readFileSync(path.join(vscode_1.env.appRoot, 'product.json'), { encoding: 'utf-8' }));
+var allowedBadgeProviders = (product.extensionAllowedBadgeProviders || []).map(function (s) { return s.toLowerCase(); });
 var httpsRequired = localize(0, null);
 var svgsNotValid = localize(1, null);
 var embeddedSvgsNotValid = localize(2, null);
@@ -62,17 +60,15 @@ var Context;
     Context[Context["BADGE"] = 1] = "BADGE";
     Context[Context["MARKDOWN"] = 2] = "MARKDOWN";
 })(Context || (Context = {}));
-var ExtensionLinter = (function () {
-    function ExtensionLinter(context) {
+var ExtensionLinter = /** @class */ (function () {
+    function ExtensionLinter() {
         var _this = this;
-        this.context = context;
         this.diagnosticsCollection = vscode_1.languages.createDiagnosticCollection('extension-editing');
         this.fileWatcher = vscode_1.workspace.createFileSystemWatcher('**/package.json');
         this.disposables = [this.diagnosticsCollection, this.fileWatcher];
         this.folderToPackageJsonInfo = {};
         this.packageJsonQ = new Set();
         this.readmeQ = new Set();
-        this.markdownIt = new MarkdownIt();
         this.disposables.push(vscode_1.workspace.onDidOpenTextDocument(function (document) { return _this.queue(document); }), vscode_1.workspace.onDidChangeTextDocument(function (event) { return _this.queue(event.document); }), vscode_1.workspace.onDidCloseTextDocument(function (document) { return _this.clear(document); }), this.fileWatcher.onDidChange(function (uri) { return _this.packageJsonChanged(_this.getUriFolder(uri)); }), this.fileWatcher.onDidCreate(function (uri) { return _this.packageJsonChanged(_this.getUriFolder(uri)); }), this.fileWatcher.onDidDelete(function (uri) { return _this.packageJsonChanged(_this.getUriFolder(uri)); }));
         vscode_1.workspace.textDocuments.forEach(function (document) { return _this.queue(document); });
     }
@@ -142,13 +138,13 @@ var ExtensionLinter = (function () {
     };
     ExtensionLinter.prototype.lintReadme = function () {
         return __awaiter(this, void 0, void 0, function () {
-            var _this = this;
             var _loop_1, this_1, _i, _a, document, state_1;
+            var _this = this;
             return __generator(this, function (_b) {
                 switch (_b.label) {
                     case 0:
                         _loop_1 = function (document) {
-                            var folder, info, tree, text, tokens, tokensAndPositions, diagnostics, svgStart;
+                            var folder, info, tree, text, tokens, tokensAndPositions, diagnostics, svgStart, _loop_2, _i, tokensAndPositions_1, tnp;
                             return __generator(this, function (_a) {
                                 switch (_a.label) {
                                     case 0:
@@ -170,6 +166,12 @@ var ExtensionLinter = (function () {
                                             return [2 /*return*/, { value: void 0 }];
                                         }
                                         text = document.getText();
+                                        if (!!this_1.markdownIt) return [3 /*break*/, 4];
+                                        return [4 /*yield*/, Promise.resolve().then(function () { return require('markdown-it'); })];
+                                    case 3:
+                                        this_1.markdownIt = new (_a.sent());
+                                        _a.label = 4;
+                                    case 4:
                                         tokens = this_1.markdownIt.parse(text, {});
                                         tokensAndPositions = (function toTokensAndPositions(tokens, begin, end) {
                                             var _this = this;
@@ -212,36 +214,60 @@ var ExtensionLinter = (function () {
                                                 }
                                             }
                                         });
-                                        tokensAndPositions.filter(function (tnp) { return tnp.token.type === 'text' && tnp.token.content; })
-                                            .map(function (tnp) {
-                                            var parser = new parse5.SAXParser({ locationInfo: true });
-                                            parser.on('startTag', function (name, attrs, selfClosing, location) {
-                                                if (name === 'img') {
-                                                    var src = attrs.find(function (a) { return a.name === 'src'; });
-                                                    if (src && src.value) {
-                                                        var begin = text.indexOf(src.value, tnp.begin + location.startOffset);
-                                                        if (begin !== -1 && begin < tnp.end) {
-                                                            _this.addDiagnostics(diagnostics, document, begin, begin + src.value.length, src.value, Context.MARKDOWN, info);
-                                                        }
-                                                    }
-                                                }
-                                                else if (name === 'svg') {
-                                                    var begin = tnp.begin + location.startOffset;
-                                                    var end = tnp.begin + location.endOffset;
-                                                    var range = new vscode_1.Range(document.positionAt(begin), document.positionAt(end));
-                                                    svgStart = new vscode_1.Diagnostic(range, embeddedSvgsNotValid, vscode_1.DiagnosticSeverity.Warning);
-                                                    diagnostics.push(svgStart);
+                                        _loop_2 = function (tnp) {
+                                            var parse5, parser;
+                                            return __generator(this, function (_a) {
+                                                switch (_a.label) {
+                                                    case 0:
+                                                        if (!(tnp.token.type === 'text' && tnp.token.content)) return [3 /*break*/, 2];
+                                                        return [4 /*yield*/, Promise.resolve().then(function () { return require('parse5'); })];
+                                                    case 1:
+                                                        parse5 = _a.sent();
+                                                        parser = new parse5.SAXParser({ locationInfo: true });
+                                                        parser.on('startTag', function (name, attrs, selfClosing, location) {
+                                                            if (name === 'img') {
+                                                                var src = attrs.find(function (a) { return a.name === 'src'; });
+                                                                if (src && src.value) {
+                                                                    var begin = text.indexOf(src.value, tnp.begin + location.startOffset);
+                                                                    if (begin !== -1 && begin < tnp.end) {
+                                                                        _this.addDiagnostics(diagnostics, document, begin, begin + src.value.length, src.value, Context.MARKDOWN, info);
+                                                                    }
+                                                                }
+                                                            }
+                                                            else if (name === 'svg') {
+                                                                var begin = tnp.begin + location.startOffset;
+                                                                var end = tnp.begin + location.endOffset;
+                                                                var range = new vscode_1.Range(document.positionAt(begin), document.positionAt(end));
+                                                                svgStart = new vscode_1.Diagnostic(range, embeddedSvgsNotValid, vscode_1.DiagnosticSeverity.Warning);
+                                                                diagnostics.push(svgStart);
+                                                            }
+                                                        });
+                                                        parser.on('endTag', function (name, location) {
+                                                            if (name === 'svg' && svgStart) {
+                                                                var end = tnp.begin + location.endOffset;
+                                                                svgStart.range = new vscode_1.Range(svgStart.range.start, document.positionAt(end));
+                                                            }
+                                                        });
+                                                        parser.write(tnp.token.content);
+                                                        parser.end();
+                                                        _a.label = 2;
+                                                    case 2: return [2 /*return*/];
                                                 }
                                             });
-                                            parser.on('endTag', function (name, location) {
-                                                if (name === 'svg' && svgStart) {
-                                                    var end = tnp.begin + location.endOffset;
-                                                    svgStart.range = new vscode_1.Range(svgStart.range.start, document.positionAt(end));
-                                                }
-                                            });
-                                            parser.write(tnp.token.content);
-                                            parser.end();
-                                        });
+                                        };
+                                        _i = 0, tokensAndPositions_1 = tokensAndPositions;
+                                        _a.label = 5;
+                                    case 5:
+                                        if (!(_i < tokensAndPositions_1.length)) return [3 /*break*/, 8];
+                                        tnp = tokensAndPositions_1[_i];
+                                        return [5 /*yield**/, _loop_2(tnp)];
+                                    case 6:
+                                        _a.sent();
+                                        _a.label = 7;
+                                    case 7:
+                                        _i++;
+                                        return [3 /*break*/, 5];
+                                    case 8:
                                         this_1.diagnosticsCollection.set(document.uri, diagnostics);
                                         return [2 /*return*/];
                                 }
@@ -262,9 +288,7 @@ var ExtensionLinter = (function () {
                     case 3:
                         _i++;
                         return [3 /*break*/, 1];
-                    case 4:
-                        ;
-                        return [2 /*return*/];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -288,9 +312,10 @@ var ExtensionLinter = (function () {
     ExtensionLinter.prototype.readPackageJsonInfo = function (folder, tree) {
         var engine = tree && jsonc_parser_1.findNodeAtLocation(tree, ['engines', 'vscode']);
         var repo = tree && jsonc_parser_1.findNodeAtLocation(tree, ['repository', 'url']);
+        var uri = repo && parseUri(repo.value);
         var info = {
             isExtension: !!(engine && engine.type === 'string'),
-            hasHttpsRepository: !!(repo && repo.type === 'string' && repo.value && parseUri(repo.value).scheme.toLowerCase() === 'https')
+            hasHttpsRepository: !!(repo && repo.type === 'string' && repo.value && uri && uri.scheme.toLowerCase() === 'https')
         };
         var str = folder.toString();
         var oldInfo = this.folderToPackageJsonInfo[str];
@@ -302,21 +327,25 @@ var ExtensionLinter = (function () {
     };
     ExtensionLinter.prototype.loadPackageJson = function (folder) {
         return __awaiter(this, void 0, void 0, function () {
-            var file, exists, document;
+            var file, document, err_1;
             return __generator(this, function (_a) {
                 switch (_a.label) {
                     case 0:
-                        file = folder.with({ path: path.posix.join(folder.path, 'package.json') });
-                        return [4 /*yield*/, fileExists(file.fsPath)];
-                    case 1:
-                        exists = _a.sent();
-                        if (!exists) {
+                        if (folder.scheme === 'git') { // #36236
                             return [2 /*return*/, undefined];
                         }
+                        file = folder.with({ path: path.posix.join(folder.path, 'package.json') });
+                        _a.label = 1;
+                    case 1:
+                        _a.trys.push([1, 3, , 4]);
                         return [4 /*yield*/, vscode_1.workspace.openTextDocument(file)];
                     case 2:
                         document = _a.sent();
                         return [2 /*return*/, jsonc_parser_1.parseTree(document.getText())];
+                    case 3:
+                        err_1 = _a.sent();
+                        return [2 /*return*/, undefined];
+                    case 4: return [2 /*return*/];
                 }
             });
         });
@@ -333,6 +362,9 @@ var ExtensionLinter = (function () {
     };
     ExtensionLinter.prototype.addDiagnostics = function (diagnostics, document, begin, end, src, context, info) {
         var uri = parseUri(src);
+        if (!uri) {
+            return;
+        }
         var scheme = uri.scheme.toLowerCase();
         if (scheme && scheme !== 'https' && scheme !== 'data') {
             var range = new vscode_1.Range(document.positionAt(begin), document.positionAt(end));
@@ -381,21 +413,6 @@ function endsWith(haystack, needle) {
         return false;
     }
 }
-function fileExists(path) {
-    return new Promise(function (resolve, reject) {
-        fs.lstat(path, function (err, stats) {
-            if (!err) {
-                resolve(true);
-            }
-            else if (err.code === 'ENOENT') {
-                resolve(false);
-            }
-            else {
-                reject(err);
-            }
-        });
-    });
-}
 function parseUri(src) {
     try {
         return vscode_1.Uri.parse(src);
@@ -405,8 +422,8 @@ function parseUri(src) {
             return vscode_1.Uri.parse(encodeURI(src));
         }
         catch (err) {
-            return vscode_1.Uri.parse('');
+            return null;
         }
     }
 }
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/extension-editing/out/extensionLinter.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/b4f62a65292c32b44a9c2ab7739390fd05d4df2a/extensions/extension-editing/out/extensionLinter.js.map

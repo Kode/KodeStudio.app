@@ -13,7 +13,6 @@ Object.defineProperty(exports, "__esModule", { value: true });
  *  Licensed under the MIT License. See License.txt in the project root for license information.
  *--------------------------------------------------------------------------------------------*/
 const vscode = require("vscode");
-const interfaces = require("./interfaces");
 const contentProvider_1 = require("./contentProvider");
 const path = require("path");
 const vscode_nls_1 = require("vscode-nls");
@@ -24,8 +23,7 @@ var NavigationDirection;
     NavigationDirection[NavigationDirection["Backwards"] = 1] = "Backwards";
 })(NavigationDirection || (NavigationDirection = {}));
 class CommandHandler {
-    constructor(context, trackerService) {
-        this.context = context;
+    constructor(trackerService) {
         this.disposables = [];
         this.tracker = trackerService.createTracker('commands');
     }
@@ -39,24 +37,24 @@ class CommandHandler {
         });
     }
     acceptCurrent(editor, ...args) {
-        return this.accept(interfaces.CommitType.Current, editor, ...args);
+        return this.accept(0 /* Current */, editor, ...args);
     }
     acceptIncoming(editor, ...args) {
-        return this.accept(interfaces.CommitType.Incoming, editor, ...args);
+        return this.accept(1 /* Incoming */, editor, ...args);
     }
     acceptBoth(editor, ...args) {
-        return this.accept(interfaces.CommitType.Both, editor, ...args);
+        return this.accept(2 /* Both */, editor, ...args);
     }
-    acceptAllCurrent(editor, ...args) {
-        return this.acceptAll(interfaces.CommitType.Current, editor);
+    acceptAllCurrent(editor) {
+        return this.acceptAll(0 /* Current */, editor);
     }
-    acceptAllIncoming(editor, ...args) {
-        return this.acceptAll(interfaces.CommitType.Incoming, editor);
+    acceptAllIncoming(editor) {
+        return this.acceptAll(1 /* Incoming */, editor);
     }
-    acceptAllBoth(editor, ...args) {
-        return this.acceptAll(interfaces.CommitType.Both, editor);
+    acceptAllBoth(editor) {
+        return this.acceptAll(2 /* Both */, editor);
     }
-    compare(editor, conflict, ...args) {
+    compare(editor, conflict) {
         return __awaiter(this, void 0, void 0, function* () {
             const fileName = path.basename(editor.document.uri.fsPath);
             // No conflict, command executed from command palette
@@ -80,13 +78,13 @@ class CommandHandler {
             vscode.commands.executeCommand('vscode.diff', leftUri, rightUri, title);
         });
     }
-    navigateNext(editor, ...args) {
+    navigateNext(editor) {
         return this.navigate(editor, NavigationDirection.Forwards);
     }
-    navigatePrevious(editor, ...args) {
+    navigatePrevious(editor) {
         return this.navigate(editor, NavigationDirection.Backwards);
     }
-    acceptSelection(editor, ...args) {
+    acceptSelection(editor) {
         return __awaiter(this, void 0, void 0, function* () {
             let conflict = yield this.findConflictContainingSelection(editor);
             if (!conflict) {
@@ -100,14 +98,14 @@ class CommandHandler {
             }
             // Figure out if the cursor is in current or incoming, we do this by seeing if
             // the active position is before or after the range of the splitter or common
-            // ancesors marker. We can use this trick as the previous check in
+            // ancestors marker. We can use this trick as the previous check in
             // findConflictByActiveSelection will ensure it's within the conflict range, so
             // we don't falsely identify "current" or "incoming" if outside of a conflict range.
             if (editor.selection.active.isBefore(tokenAfterCurrentBlock.start)) {
-                typeToAccept = interfaces.CommitType.Current;
+                typeToAccept = 0 /* Current */;
             }
             else if (editor.selection.active.isAfter(conflict.splitter.end)) {
-                typeToAccept = interfaces.CommitType.Incoming;
+                typeToAccept = 1 /* Incoming */;
             }
             else if (editor.selection.active.isBefore(conflict.splitter.start)) {
                 vscode.window.showWarningMessage(localize(3, null));
@@ -153,7 +151,7 @@ class CommandHandler {
                 conflict = args[1];
             }
             else {
-                // Attempt to find a conflict that matches the current curosr position
+                // Attempt to find a conflict that matches the current cursor position
                 conflict = yield this.findConflictContainingSelection(editor);
             }
             if (!conflict) {
@@ -246,4 +244,4 @@ class CommandHandler {
     }
 }
 exports.default = CommandHandler;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/merge-conflict/out/commandHandler.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/b4f62a65292c32b44a9c2ab7739390fd05d4df2a/extensions/merge-conflict/out/commandHandler.js.map

@@ -3,7 +3,7 @@
 <plist version="1.0">
   <dict>
     <key>BuildMachineOSBuild</key>
-    <string>15G31</string>
+    <string>16G1510</string>
     <key>CFBundleDisplayName</key>
     <string>Kode Studio</string>
     <key>CFBundleExecutable</key>
@@ -19,17 +19,17 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>17.9.1</string>
+    <string>1.28.0</string>
     <key>CFBundleVersion</key>
-    <string>17.9.1</string>
+    <string>1.28.0</string>
     <key>DTSDKBuild</key>
     <string>14D125</string>
     <key>DTSDKName</key>
     <string>macosx10.1010.10</string>
     <key>DTXcode</key>
-    <string>0821</string>
+    <string>0833</string>
     <key>DTXcodeBuild</key>
-    <string>8C1002</string>
+    <string>8E3004b</string>
     <key>LSApplicationCategoryType</key>
     <string>public.app-category.developer-tools</string>
     <key>LSMinimumSystemVersion</key>
@@ -43,7 +43,7 @@
     <key>NSSupportsAutomaticGraphicsSwitching</key>
     <true/>
     <key>NSHumanReadableCopyright</key>
-    <string>Copyright (C) 2017 the Kode Studio team. All rights reserved</string>
+    <string>Copyright (C) 2018 Microsoft and the Kode Studio team. All rights reserved</string>
     <key>CFBundleHelpBookFolder</key>
     <string>VS Code HelpBook</string>
     <key>CFBundleHelpBookName</key>
@@ -155,6 +155,7 @@
           <string>psd1</string>
           <string>psgi</string>
           <string>psm1</string>
+          <string>pug</string>
           <string>py</string>
           <string>r</string>
           <string>rb</string>

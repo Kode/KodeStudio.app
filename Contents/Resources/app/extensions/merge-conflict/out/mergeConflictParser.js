@@ -12,7 +12,7 @@ const splitterMarker = '=======';
 const endFooterMarker = '>>>>>>>';
 class MergeConflictParser {
     static scanDocument(document) {
-        // Scan each line in the document, we already know there is atleast a <<<<<<< and
+        // Scan each line in the document, we already know there is at least a <<<<<<< and
         // >>>>>> marker within the document, we need to group these into conflict ranges.
         // We initially build a scan match, that references the lines of the header, splitter
         // and footer. This is then converted into a full descriptor containing all required
@@ -37,12 +37,15 @@ class MergeConflictParser {
                 // Create a new conflict starting at this line
                 currentConflict = { startHeader: line, commonAncestors: [] };
             }
+            // Are we within a conflict block and is this a common ancestors marker? |||||||
             else if (currentConflict && !currentConflict.splitter && line.text.startsWith(commonAncestorsMarker)) {
                 currentConflict.commonAncestors.push(line);
             }
+            // Are we within a conflict block and is this a splitter? =======
             else if (currentConflict && !currentConflict.splitter && line.text.startsWith(splitterMarker)) {
                 currentConflict.splitter = line;
             }
+            // Are we within a conflict block and is this a footer? >>>>>>>
             else if (currentConflict && line.text.startsWith(endFooterMarker)) {
                 currentConflict.endFooter = line;
                 // Create a full descriptor from the lines that we matched. This can return
@@ -58,7 +61,7 @@ class MergeConflictParser {
         }
         return conflictDescriptors
             .filter(Boolean)
-            .map(descriptor => new documentMergeConflict_1.DocumentMergeConflict(document, descriptor));
+            .map(descriptor => new documentMergeConflict_1.DocumentMergeConflict(descriptor));
     }
     static scanItemTolMergeConflictDescriptor(document, scanned) {
         // Validate we have all the required lines within the scan item.
@@ -66,9 +69,9 @@ class MergeConflictParser {
             return null;
         }
         let tokenAfterCurrentBlock = scanned.commonAncestors[0] || scanned.splitter;
-        // Assume that descriptor.current.header, descriptor.incoming.header and descriptor.spliiter
+        // Assume that descriptor.current.header, descriptor.incoming.header and descriptor.splitter
         // have valid ranges, fill in content and total ranges from these parts.
-        // NOTE: We need to shift the decortator range back one character so the splitter does not end up with
+        // NOTE: We need to shift the decorator range back one character so the splitter does not end up with
         // two decoration colors (current and splitter), if we take the new line from the content into account
         // the decorator will wrap to the next line.
         return {
@@ -123,4 +126,4 @@ class MergeConflictParser {
     }
 }
 exports.MergeConflictParser = MergeConflictParser;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/merge-conflict/out/mergeConflictParser.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/b4f62a65292c32b44a9c2ab7739390fd05d4df2a/extensions/merge-conflict/out/mergeConflictParser.js.map

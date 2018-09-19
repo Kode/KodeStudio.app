@@ -8,7 +8,7 @@ var vscode = require("vscode");
 var jsonc_parser_1 = require("jsonc-parser");
 var nls = require("vscode-nls");
 var localize = nls.loadMessageBundle(__filename);
-var SettingsDocument = (function () {
+var SettingsDocument = /** @class */ (function () {
     function SettingsDocument(document) {
         this.document = document;
     }
@@ -49,23 +49,26 @@ var SettingsDocument = (function () {
     };
     SettingsDocument.prototype.provideFilesAssociationsCompletionItems = function (location, range) {
         var completions = [];
-        // Key
-        if (location.path.length === 1) {
-            completions.push(this.newSnippetCompletionItem({
-                label: localize(10, null),
-                documentation: localize(11, null),
-                snippet: location.isAtPropertyKey ? '"*.${1:extension}": "${2:language}"' : '{ "*.${1:extension}": "${2:language}" }',
-                range: range
-            }));
-            completions.push(this.newSnippetCompletionItem({
-                label: localize(12, null),
-                documentation: localize(13, null),
-                snippet: location.isAtPropertyKey ? '"/${1:path to file}/*.${2:extension}": "${3:language}"' : '{ "/${1:path to file}/*.${2:extension}": "${3:language}" }',
-                range: range
-            }));
-        }
-        else if (location.path.length === 2 && !location.isAtPropertyKey) {
-            return this.provideLanguageCompletionItems(location, range);
+        if (location.path.length === 2) {
+            // Key
+            if (!location.isAtPropertyKey || location.path[1] === '') {
+                completions.push(this.newSnippetCompletionItem({
+                    label: localize(10, null),
+                    documentation: localize(11, null),
+                    snippet: location.isAtPropertyKey ? '"*.${1:extension}": "${2:language}"' : '{ "*.${1:extension}": "${2:language}" }',
+                    range: range
+                }));
+                completions.push(this.newSnippetCompletionItem({
+                    label: localize(12, null),
+                    documentation: localize(13, null),
+                    snippet: location.isAtPropertyKey ? '"/${1:path to file}/*.${2:extension}": "${3:language}"' : '{ "/${1:path to file}/*.${2:extension}": "${3:language}" }',
+                    range: range
+                }));
+            }
+            else {
+                // Value
+                return this.provideLanguageCompletionItems(location, range);
+            }
         }
         return Promise.resolve(completions);
     };
@@ -110,6 +113,7 @@ var SettingsDocument = (function () {
                 range: range
             }));
         }
+        // Value
         else {
             completions.push(this.newSimpleCompletionItem('false', range, localize(26, null)));
             completions.push(this.newSimpleCompletionItem('true', range, localize(27, null)));
@@ -123,18 +127,33 @@ var SettingsDocument = (function () {
         return Promise.resolve(completions);
     };
     SettingsDocument.prototype.provideLanguageCompletionItems = function (location, range, formatFunc) {
-        var _this = this;
         if (formatFunc === void 0) { formatFunc = function (l) { return JSON.stringify(l); }; }
         return vscode.languages.getLanguages().then(function (languages) {
-            return languages.map(function (l) {
-                return _this.newSimpleCompletionItem(formatFunc(l), range);
-            });
+            var completionItems = [];
+            var configuration = vscode.workspace.getConfiguration();
+            for (var _i = 0, languages_1 = languages; _i < languages_1.length; _i++) {
+                var language = languages_1[_i];
+                var inspect = configuration.inspect("[" + language + "]");
+                if (!inspect || !inspect.defaultValue) {
+                    var item = new vscode.CompletionItem(formatFunc(language));
+                    item.kind = vscode.CompletionItemKind.Property;
+                    item.range = range;
+                    completionItems.push(item);
+                }
+            }
+            return completionItems;
         });
     };
     SettingsDocument.prototype.provideLanguageOverridesCompletionItems = function (location, position) {
-        var range = this.document.getWordRangeAtPosition(position) || new vscode.Range(position, position);
-        var text = this.document.getText(range);
         if (location.path.length === 0) {
+            var range = this.document.getWordRangeAtPosition(position, /^\s*\[.*]?/) || new vscode.Range(position, position);
+            var text = this.document.getText(range);
+            if (text && text.trim().startsWith('[')) {
+                range = new vscode.Range(new vscode.Position(range.start.line, range.start.character + text.indexOf('[')), range.end);
+                return this.provideLanguageCompletionItems(location, range, function (language) { return "\"[" + language + "]\""; });
+            }
+            range = this.document.getWordRangeAtPosition(position) || new vscode.Range(position, position);
+            text = this.document.getText(range);
             var snippet = '"[${1:language}]": {\n\t"$0"\n}';
             // Suggestion model word matching includes quotes,
             // hence exclude the starting quote from the snippet and the range
@@ -153,6 +172,7 @@ var SettingsDocument = (function () {
         if (location.path.length === 1 && location.previousNode && typeof location.previousNode.value === 'string' && location.previousNode.value.startsWith('[')) {
             // Suggestion model word matching includes closed sqaure bracket and ending quote
             // Hence include them in the proposal to replace
+            var range = this.document.getWordRangeAtPosition(position) || new vscode.Range(position, position);
             return this.provideLanguageCompletionItems(location, range, function (language) { return "\"[" + language + "]\""; });
         }
         return Promise.resolve([]);
@@ -176,4 +196,4 @@ var SettingsDocument = (function () {
     return SettingsDocument;
 }());
 exports.SettingsDocument = SettingsDocument;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/configuration-editing/out/settingsDocumentHelper.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/b4f62a65292c32b44a9c2ab7739390fd05d4df2a/extensions/configuration-editing/out/settingsDocumentHelper.js.map

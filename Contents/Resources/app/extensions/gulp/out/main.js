@@ -17,50 +17,7 @@ const fs = require("fs");
 const cp = require("child_process");
 const vscode = require("vscode");
 const nls = require("vscode-nls");
-const localize = nls.config(process.env.VSCODE_NLS_CONFIG)(__filename);
-let taskProvider;
-function activate(_context) {
-    let workspaceRoot = vscode.workspace.rootPath;
-    if (!workspaceRoot) {
-        return;
-    }
-    let pattern = path.join(workspaceRoot, 'gulpfile{.babel.js,.js}');
-    let gulpPromise = undefined;
-    let fileWatcher = vscode.workspace.createFileSystemWatcher(pattern);
-    fileWatcher.onDidChange(() => gulpPromise = undefined);
-    fileWatcher.onDidCreate(() => gulpPromise = undefined);
-    fileWatcher.onDidDelete(() => gulpPromise = undefined);
-    function onConfigurationChanged() {
-        let autoDetect = vscode.workspace.getConfiguration('gulp').get('autoDetect');
-        if (taskProvider && autoDetect === 'off') {
-            gulpPromise = undefined;
-            taskProvider.dispose();
-            taskProvider = undefined;
-        }
-        else if (!taskProvider && autoDetect === 'on') {
-            taskProvider = vscode.workspace.registerTaskProvider('gulp', {
-                provideTasks: () => {
-                    if (!gulpPromise) {
-                        gulpPromise = getGulpTasks();
-                    }
-                    return gulpPromise;
-                },
-                resolveTask(_task) {
-                    return undefined;
-                }
-            });
-        }
-    }
-    vscode.workspace.onDidChangeConfiguration(onConfigurationChanged);
-    onConfigurationChanged();
-}
-exports.activate = activate;
-function deactivate() {
-    if (taskProvider) {
-        taskProvider.dispose();
-    }
-}
-exports.deactivate = deactivate;
+const localize = nls.loadMessageBundle(__filename);
 function exists(file) {
     return new Promise((resolve, _reject) => {
         fs.exists(file, (value) => {
@@ -77,13 +34,6 @@ function exec(command, options) {
             resolve({ stdout, stderr });
         });
     });
-}
-let _channel;
-function getOutputChannel() {
-    if (!_channel) {
-        _channel = vscode.window.createOutputChannel('Gulp Auto Detection');
-    }
-    return _channel;
 }
 const buildNames = ['build', 'compile', 'watch'];
 function isBuildTask(name) {
@@ -103,74 +53,224 @@ function isTestTask(name) {
     }
     return false;
 }
-function getGulpTasks() {
-    return __awaiter(this, void 0, void 0, function* () {
-        let workspaceRoot = vscode.workspace.rootPath;
-        let emptyTasks = [];
-        if (!workspaceRoot) {
-            return emptyTasks;
-        }
-        let gulpfile = path.join(workspaceRoot, 'gulpfile.js');
-        if (!(yield exists(gulpfile))) {
-            gulpfile = path.join(workspaceRoot, 'gulpfile.babel.js');
-            if (!(yield exists(gulpfile))) {
+let _channel;
+function getOutputChannel() {
+    if (!_channel) {
+        _channel = vscode.window.createOutputChannel('Gulp Auto Detection');
+    }
+    return _channel;
+}
+class FolderDetector {
+    constructor(_workspaceFolder) {
+        this._workspaceFolder = _workspaceFolder;
+    }
+    get workspaceFolder() {
+        return this._workspaceFolder;
+    }
+    isEnabled() {
+        return vscode.workspace.getConfiguration('gulp', this._workspaceFolder.uri).get('autoDetect') === 'on';
+    }
+    start() {
+        let pattern = path.join(this._workspaceFolder.uri.fsPath, 'gulpfile{.babel.js,.js,.ts}');
+        this.fileWatcher = vscode.workspace.createFileSystemWatcher(pattern);
+        this.fileWatcher.onDidChange(() => this.promise = undefined);
+        this.fileWatcher.onDidCreate(() => this.promise = undefined);
+        this.fileWatcher.onDidDelete(() => this.promise = undefined);
+    }
+    getTasks() {
+        return __awaiter(this, void 0, void 0, function* () {
+            if (!this.promise) {
+                this.promise = this.computeTasks();
+            }
+            return this.promise;
+        });
+    }
+    computeTasks() {
+        return __awaiter(this, void 0, void 0, function* () {
+            let rootPath = this._workspaceFolder.uri.scheme === 'file' ? this._workspaceFolder.uri.fsPath : undefined;
+            let emptyTasks = [];
+            if (!rootPath) {
                 return emptyTasks;
             }
-        }
-        let gulpCommand;
-        let platform = process.platform;
-        if (platform === 'win32' && (yield exists(path.join(workspaceRoot, 'node_modules', '.bin', 'gulp.cmd')))) {
-            gulpCommand = path.join('.', 'node_modules', '.bin', 'gulp.cmd');
-        }
-        else if ((platform === 'linux' || platform === 'darwin') && (yield exists(path.join(workspaceRoot, 'node_modules', '.bin', 'gulp')))) {
-            gulpCommand = path.join('.', 'node_modules', '.bin', 'gulp');
-        }
-        else {
-            gulpCommand = 'gulp';
-        }
-        let commandLine = `${gulpCommand} --tasks-simple --no-color`;
-        try {
-            let { stdout, stderr } = yield exec(commandLine, { cwd: workspaceRoot });
-            if (stderr && stderr.length > 0) {
-                getOutputChannel().appendLine(stderr);
-                getOutputChannel().show(true);
+            let gulpfile = path.join(rootPath, 'gulpfile.js');
+            if (!(yield exists(gulpfile))) {
+                gulpfile = path.join(rootPath, 'gulpfile.babel.js');
+                if (!(yield exists(gulpfile))) {
+                    return emptyTasks;
+                }
             }
-            let result = [];
-            if (stdout) {
-                let lines = stdout.split(/\r{0,1}\n/);
-                for (let line of lines) {
-                    if (line.length === 0) {
-                        continue;
+            let gulpCommand;
+            let platform = process.platform;
+            if (platform === 'win32' && (yield exists(path.join(rootPath, 'node_modules', '.bin', 'gulp.cmd')))) {
+                gulpCommand = path.join('.', 'node_modules', '.bin', 'gulp.cmd');
+            }
+            else if ((platform === 'linux' || platform === 'darwin') && (yield exists(path.join(rootPath, 'node_modules', '.bin', 'gulp')))) {
+                gulpCommand = path.join('.', 'node_modules', '.bin', 'gulp');
+            }
+            else {
+                gulpCommand = 'gulp';
+            }
+            let commandLine = `${gulpCommand} --tasks-simple --no-color`;
+            try {
+                let { stdout, stderr } = yield exec(commandLine, { cwd: rootPath });
+                if (stderr && stderr.length > 0) {
+                    getOutputChannel().appendLine(stderr);
+                    getOutputChannel().show(true);
+                }
+                let result = [];
+                if (stdout) {
+                    let lines = stdout.split(/\r{0,1}\n/);
+                    for (let line of lines) {
+                        if (line.length === 0) {
+                            continue;
+                        }
+                        let kind = {
+                            type: 'gulp',
+                            task: line
+                        };
+                        let options = { cwd: this.workspaceFolder.uri.fsPath };
+                        let task = new vscode.Task(kind, this.workspaceFolder, line, 'gulp', new vscode.ShellExecution(`${gulpCommand} ${line}`, options));
+                        result.push(task);
+                        let lowerCaseLine = line.toLowerCase();
+                        if (isBuildTask(lowerCaseLine)) {
+                            task.group = vscode.TaskGroup.Build;
+                        }
+                        else if (isTestTask(lowerCaseLine)) {
+                            task.group = vscode.TaskGroup.Test;
+                        }
                     }
-                    let kind = {
-                        type: 'gulp',
-                        task: line
-                    };
-                    let task = new vscode.Task(kind, line, 'gulp', new vscode.ShellExecution(`${gulpCommand} ${line}`));
-                    result.push(task);
-                    let lowerCaseLine = line.toLowerCase();
-                    if (isBuildTask(lowerCaseLine)) {
-                        task.group = vscode.TaskGroup.Build;
-                    }
-                    else if (isTestTask(lowerCaseLine)) {
-                        task.group = vscode.TaskGroup.Test;
+                }
+                return result;
+            }
+            catch (err) {
+                let channel = getOutputChannel();
+                if (err.stderr) {
+                    channel.appendLine(err.stderr);
+                }
+                if (err.stdout) {
+                    channel.appendLine(err.stdout);
+                }
+                channel.appendLine(localize(0, null, this.workspaceFolder.name, err.error ? err.error.toString() : 'unknown'));
+                channel.show(true);
+                return emptyTasks;
+            }
+        });
+    }
+    dispose() {
+        this.promise = undefined;
+        if (this.fileWatcher) {
+            this.fileWatcher.dispose();
+        }
+    }
+}
+class TaskDetector {
+    constructor() {
+        this.detectors = new Map();
+    }
+    start() {
+        let folders = vscode.workspace.workspaceFolders;
+        if (folders) {
+            this.updateWorkspaceFolders(folders, []);
+        }
+        vscode.workspace.onDidChangeWorkspaceFolders((event) => this.updateWorkspaceFolders(event.added, event.removed));
+        vscode.workspace.onDidChangeConfiguration(this.updateConfiguration, this);
+    }
+    dispose() {
+        if (this.taskProvider) {
+            this.taskProvider.dispose();
+            this.taskProvider = undefined;
+        }
+        this.detectors.clear();
+    }
+    updateWorkspaceFolders(added, removed) {
+        for (let remove of removed) {
+            let detector = this.detectors.get(remove.uri.toString());
+            if (detector) {
+                detector.dispose();
+                this.detectors.delete(remove.uri.toString());
+            }
+        }
+        for (let add of added) {
+            let detector = new FolderDetector(add);
+            if (detector.isEnabled()) {
+                this.detectors.set(add.uri.toString(), detector);
+                detector.start();
+            }
+        }
+        this.updateProvider();
+    }
+    updateConfiguration() {
+        for (let detector of this.detectors.values()) {
+            if (!detector.isEnabled()) {
+                detector.dispose();
+                this.detectors.delete(detector.workspaceFolder.uri.toString());
+            }
+        }
+        let folders = vscode.workspace.workspaceFolders;
+        if (folders) {
+            for (let folder of folders) {
+                if (!this.detectors.has(folder.uri.toString())) {
+                    let detector = new FolderDetector(folder);
+                    if (detector.isEnabled()) {
+                        this.detectors.set(folder.uri.toString(), detector);
+                        detector.start();
                     }
                 }
             }
-            return result;
         }
-        catch (err) {
-            let channel = getOutputChannel();
-            if (err.stderr) {
-                channel.appendLine(err.stderr);
-            }
-            if (err.stdout) {
-                channel.appendLine(err.stdout);
-            }
-            channel.appendLine(localize(0, null, err.error ? err.error.toString() : 'unknown'));
-            channel.show(true);
-            return emptyTasks;
+        this.updateProvider();
+    }
+    updateProvider() {
+        if (!this.taskProvider && this.detectors.size > 0) {
+            this.taskProvider = vscode.workspace.registerTaskProvider('gulp', {
+                provideTasks: () => {
+                    return this.getTasks();
+                },
+                resolveTask(_task) {
+                    return undefined;
+                }
+            });
         }
-    });
-}
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/gulp/out/main.js.map
+        else if (this.taskProvider && this.detectors.size === 0) {
+            this.taskProvider.dispose();
+            this.taskProvider = undefined;
+        }
+    }
+    getTasks() {
+        return this.computeTasks();
+    }
+    computeTasks() {
+        if (this.detectors.size === 0) {
+            return Promise.resolve([]);
+        }
+        else if (this.detectors.size === 1) {
+            return this.detectors.values().next().value.getTasks();
+        }
+        else {
+            let promises = [];
+            for (let detector of this.detectors.values()) {
+                promises.push(detector.getTasks().then((value) => value, () => []));
+            }
+            return Promise.all(promises).then((values) => {
+                let result = [];
+                for (let tasks of values) {
+                    if (tasks && tasks.length > 0) {
+                        result.push(...tasks);
+                    }
+                }
+                return result;
+            });
+        }
+    }
+}
+let detector;
+function activate(_context) {
+    detector = new TaskDetector();
+    detector.start();
+}
+exports.activate = activate;
+function deactivate() {
+    detector.dispose();
+}
+exports.deactivate = deactivate;
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/b4f62a65292c32b44a9c2ab7739390fd05d4df2a/extensions/gulp/out/main.js.map

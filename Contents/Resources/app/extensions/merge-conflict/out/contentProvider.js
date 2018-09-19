@@ -17,7 +17,7 @@ class MergeConflictContentProvider {
     constructor(context) {
         this.context = context;
     }
-    begin(config) {
+    begin() {
         this.context.subscriptions.push(vscode.workspace.registerTextDocumentContentProvider(MergeConflictContentProvider.scheme, this));
     }
     dispose() {
@@ -40,4 +40,4 @@ class MergeConflictContentProvider {
 }
 MergeConflictContentProvider.scheme = 'merge-conflict.conflict-diff';
 exports.default = MergeConflictContentProvider;
-//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/1d9d255f12f745e416dfb0fb0d2499cfea3aa37f/extensions/merge-conflict/out/contentProvider.js.map
+//# sourceMappingURL=https://ticino.blob.core.windows.net/sourcemaps/b4f62a65292c32b44a9c2ab7739390fd05d4df2a/extensions/merge-conflict/out/contentProvider.js.map
