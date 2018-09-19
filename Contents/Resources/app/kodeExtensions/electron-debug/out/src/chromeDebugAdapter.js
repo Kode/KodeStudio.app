@@ -19,7 +19,7 @@ const child_process_1 = require("child_process");
 const utils = require("./utils");
 const errors = require("./errors");
 const nls = require("vscode-nls");
-let localize = nls.loadMessageBundle(__filename);
+let localize = nls.loadMessageBundle();
 // Keep in sync with sourceMapPathOverrides package.json default
 const DefaultWebSourceMapPathOverrides = {
     'webpack:///./~/*': '${webRoot}/node_modules/*',
@@ -40,7 +40,7 @@ class ChromeDebugAdapter extends vscode_chrome_debug_core_1.ChromeDebugAdapter {
         capabilities.supportsSetExpression = true;
         capabilities.supportsLogPoints = true;
         if (args.locale) {
-            localize = nls.config({ locale: args.locale })(__filename);
+            localize = nls.config({ locale: args.locale })();
         }
         return capabilities;
     }
@@ -62,7 +62,7 @@ class ChromeDebugAdapter extends vscode_chrome_debug_core_1.ChromeDebugAdapter {
             }
             runtimeExecutable = runtimeExecutable || args.electronPath;
             if (!runtimeExecutable) {
-                return vscode_chrome_debug_core_1.utils.errP(localize(0, null));
+                return vscode_chrome_debug_core_1.utils.errP(localize('attribute.chrome.missing', "Can't find Chrome - install it or set the \"runtimeExecutable\" field in the launch config."));
             }
             // Start with remote debugging enabled
             const port = args.port || Math.floor((Math.random() * 10000) + 10000);

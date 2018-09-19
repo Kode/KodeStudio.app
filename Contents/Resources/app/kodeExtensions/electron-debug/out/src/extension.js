@@ -20,7 +20,7 @@ const vscode = require("vscode");
 const Core = require("vscode-chrome-debug-core");
 const utils_1 = require("./utils");
 const nls = require("vscode-nls");
-const localize = nls.loadMessageBundle(__filename);
+const localize = nls.loadMessageBundle();
 function activate(context) {
     return __awaiter(this, void 0, void 0, function* () {
         const extensionId = 'kodetech.electron-debug';
@@ -49,7 +49,7 @@ exports.deactivate = deactivate;
 const DEFAULT_CONFIG = {
     type: 'electron',
     request: 'launch',
-    name: localize(0, null),
+    name: localize('chrome.launch.name', 'Launch Electron against the workspace'),
     appDir: '${workspaceFolder}'
 };
 class ChromeConfigurationProvider {
@@ -132,7 +132,7 @@ function pickTarget(targets) {
             detail: target.url,
             websocketDebuggerUrl: target.webSocketDebuggerUrl
         }));
-        const placeHolder = localize(1, null);
+        const placeHolder = localize('chrome.targets.placeholder', 'Select a tab');
         const selected = yield vscode.window.showQuickPick(items, { placeHolder, matchOnDescription: true, matchOnDetail: true });
         return selected;
     });
