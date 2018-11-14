@@ -1,1 +1,0 @@
-painter_colored_frag_main

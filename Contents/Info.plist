@@ -19,9 +19,9 @@
     <key>CFBundlePackageType</key>
     <string>APPL</string>
     <key>CFBundleShortVersionString</key>
-    <string>18.9.2</string>
+    <string>1.29.0</string>
     <key>CFBundleVersion</key>
-    <string>18.9.2</string>
+    <string>1.29.0</string>
     <key>DTSDKBuild</key>
     <string>14D125</string>
     <key>DTSDKName</key>
@@ -64,72 +64,297 @@
         </array>
         <key>CFBundleTypeExtensions</key>
         <array>
-          <string>ascx</string>
-          <string>asp</string>
-          <string>aspx</string>
-          <string>bash</string>
-          <string>bash_login</string>
-          <string>bash_logout</string>
-          <string>bash_profile</string>
-          <string>bashrc</string>
           <string>bat</string>
-          <string>bowerrc</string>
-          <string>c</string>
-          <string>cc</string>
-          <string>clj</string>
-          <string>cljs</string>
-          <string>cljx</string>
-          <string>clojure</string>
           <string>cmd</string>
-          <string>code-workspace</string>
-          <string>coffee</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>bat.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>bowerrc</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>bower.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>c</string>
+          <string>h</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>c.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>config</string>
-          <string>cpp</string>
-          <string>cs</string>
-          <string>cshtml</string>
-          <string>csproj</string>
-          <string>css</string>
-          <string>csx</string>
-          <string>ctp</string>
-          <string>cxx</string>
-          <string>dockerfile</string>
-          <string>dot</string>
-          <string>dtd</string>
           <string>editorconfig</string>
-          <string>edn</string>
-          <string>eyaml</string>
-          <string>eyml</string>
-          <string>fs</string>
-          <string>fsi</string>
-          <string>fsscript</string>
-          <string>fsx</string>
-          <string>gemspec</string>
           <string>gitattributes</string>
           <string>gitconfig</string>
           <string>gitignore</string>
-          <string>go</string>
-          <string>h</string>
-          <string>handlebars</string>
-          <string>hbs</string>
+          <string>ini</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>config.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>cc</string>
+          <string>cpp</string>
+          <string>cxx</string>
           <string>hh</string>
           <string>hpp</string>
+          <string>hxx</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>cpp.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>cs</string>
+          <string>csx</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>csharp.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>css</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>css.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>go</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>go.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>asp</string>
+          <string>aspx</string>
+          <string>cshtml</string>
           <string>htm</string>
           <string>html</string>
-          <string>hxx</string>
-          <string>ini</string>
+          <string>jshtm</string>
+          <string>jsp</string>
+          <string>phtml</string>
+          <string>shtml</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>html.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>jade</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>jade.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>jav</string>
           <string>java</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>java.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>js</string>
           <string>jscsrc</string>
           <string>jshintrc</string>
-          <string>jshtm</string>
+          <string>mjs</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>javascript.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>json</string>
-          <string>jsp</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>json.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>less</string>
-          <string>lua</string>
-          <string>m</string>
-          <string>makefile</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>less.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>markdown</string>
           <string>md</string>
           <string>mdoc</string>
@@ -139,49 +364,131 @@
           <string>mdwn</string>
           <string>mkd</string>
           <string>mkdn</string>
-          <string>ml</string>
-          <string>mli</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>markdown.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>php</string>
-          <string>phtml</string>
-          <string>pl</string>
-          <string>pl6</string>
-          <string>pm</string>
-          <string>pm6</string>
-          <string>pod</string>
-          <string>pp</string>
-          <string>profile</string>
-          <string>properties</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>php.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>ps1</string>
           <string>psd1</string>
-          <string>psgi</string>
           <string>psm1</string>
-          <string>pug</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>powershell.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
           <string>py</string>
-          <string>r</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>python.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>gemspec</string>
           <string>rb</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>ruby.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>scss</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>sass.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>bash</string>
+          <string>bash_login</string>
+          <string>bash_logout</string>
+          <string>bash_profile</string>
+          <string>bashrc</string>
+          <string>profile</string>
           <string>rhistory</string>
           <string>rprofile</string>
-          <string>rs</string>
-          <string>rt</string>
-          <string>scss</string>
           <string>sh</string>
-          <string>shtml</string>
-          <string>sql</string>
-          <string>svg</string>
-          <string>svgz</string>
-          <string>t</string>
-          <string>ts</string>
-          <string>txt</string>
-          <string>vb</string>
-          <string>wxi</string>
-          <string>wxl</string>
-          <string>wxs</string>
-          <string>xaml</string>
-          <string>xcodeproj</string>
-          <string>xcworkspace</string>
-          <string>xml</string>
-          <string>yaml</string>
-          <string>yml</string>
           <string>zlogin</string>
           <string>zlogout</string>
           <string>zprofile</string>
@@ -190,7 +497,190 @@
           <string>zshrc</string>
         </array>
         <key>CFBundleTypeIconFile</key>
-        <string>code_file.icns</string>
+        <string>shell.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>sql</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>sql.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>ts</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>typescript.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>tsx</string>
+          <string>jsx</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>react.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>vue</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>vue.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>ascx</string>
+          <string>csproj</string>
+          <string>dtd</string>
+          <string>wxi</string>
+          <string>wxl</string>
+          <string>wxs</string>
+          <string>xml</string>
+          <string>xaml</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>xml.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>eyaml</string>
+          <string>eyml</string>
+          <string>yaml</string>
+          <string>yml</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>yaml.icns</string>
+      </dict>
+      <dict>
+        <key>CFBundleTypeName</key>
+        <string>Kode Studio document</string>
+        <key>CFBundleTypeRole</key>
+        <string>Editor</string>
+        <key>CFBundleTypeOSTypes</key>
+        <array>
+          <string>TEXT</string>
+          <string>utxt</string>
+          <string>TUTX</string>
+          <string>****</string>
+        </array>
+        <key>CFBundleTypeExtensions</key>
+        <array>
+          <string>clj</string>
+          <string>cljs</string>
+          <string>cljx</string>
+          <string>clojure</string>
+          <string>code-workspace</string>
+          <string>coffee</string>
+          <string>ctp</string>
+          <string>dockerfile</string>
+          <string>dot</string>
+          <string>edn</string>
+          <string>fs</string>
+          <string>fsi</string>
+          <string>fsscript</string>
+          <string>fsx</string>
+          <string>handlebars</string>
+          <string>hbs</string>
+          <string>lua</string>
+          <string>m</string>
+          <string>makefile</string>
+          <string>ml</string>
+          <string>mli</string>
+          <string>pl</string>
+          <string>pl6</string>
+          <string>pm</string>
+          <string>pm6</string>
+          <string>pod</string>
+          <string>pp</string>
+          <string>properties</string>
+          <string>psgi</string>
+          <string>pug</string>
+          <string>r</string>
+          <string>rs</string>
+          <string>rt</string>
+          <string>svg</string>
+          <string>svgz</string>
+          <string>t</string>
+          <string>txt</string>
+          <string>vb</string>
+          <string>xcodeproj</string>
+          <string>xcworkspace</string>
+        </array>
+        <key>CFBundleTypeIconFile</key>
+        <string>default.icns</string>
       </dict>
     </array>
     <key>CFBundleURLTypes</key>
@@ -206,5 +696,7 @@
         </array>
       </dict>
     </array>
+    <key>NSRequiresAquaSystemAppearance</key>
+    <false/>
   </dict>
 </plist>

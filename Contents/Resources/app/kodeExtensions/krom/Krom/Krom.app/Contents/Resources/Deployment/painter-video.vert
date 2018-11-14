@@ -1,1 +1,0 @@
-painter_video_vert_main

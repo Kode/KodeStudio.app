@@ -1,1 +1,0 @@
-painter_image_frag_main
